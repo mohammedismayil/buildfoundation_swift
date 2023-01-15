@@ -21,24 +21,44 @@ class FRCTableVC:UIViewController{
         return tbl
     }()
     
+    let appDel = UIApplication.shared.delegate as! AppDelegate
+//     var fetchController : NSFetchedResultsController<PlayerEntity>? = {
+//
+//         let request = PlayerEntity.createFetchRequest()
+//
+//         let sort = NSSortDescriptor(key: "name", ascending: false)
+//        request.sortDescriptors = [sort]
+//
+//
+//         let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: appDel
+//            .persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+//
+//        return frc
+//    }()
     
-     var fetchController : NSFetchedResultsController<PlayerEntity>? = {
-        
-         let request = PlayerEntity.createFetchRequest()
-                
-         let sort = NSSortDescriptor(key: "name", ascending: false)
-        request.sortDescriptors = [sort]
-         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-         let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: appDelegate
-            .persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
-        
-        return frc
-    }()
+    var fetchController:NSFetchedResultsController<PlayerEntity>!
     
     
     
     override func viewDidLoad() {
+        
+        let request = PlayerEntity.createFetchRequest()
+       
+                let sort = NSSortDescriptor(key: "name", ascending: false)
+               request.sortDescriptors = [sort]
+       
+       
+                fetchController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: appDel.persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        
+        
+        do {
+         try   fetchController.performFetch()
+            
+        }catch{
+            
+            
+        }
+       
         addDummyRecord()
         setupUI()
        
@@ -63,14 +83,20 @@ class FRCTableVC:UIViewController{
         
         
             
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
-        let managedContext = appDelegate.persistentContainer.viewContext
-                //2
-                let entity = PlayerEntity(entity:NSEntityDescription.entity(forEntityName: "PlayerEntity", in : managedContext)! , insertInto: managedContext)
-                   
         
-        entity.name = "Laxman"
+        let managedContext = appDel.persistentContainer.viewContext
+//                //2
+//                let entity = PlayerEntity(entity:NSEntityDescription.entity(forEntityName: "PlayerEntity", in : managedContext)! , insertInto: managedContext)
+//
+//
+        
+        let entity = NSEntityDescription.entity(forEntityName: "PlayerEntity", in : managedContext)!
+                    //3
+                    let record = NSManagedObject(entity: entity, insertInto: managedContext)
+                //4
+                record.setValue("laxman", forKey: "name")
+       
                 //4
         do {
             try managedContext.save()
