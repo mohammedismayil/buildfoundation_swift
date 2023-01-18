@@ -22,9 +22,9 @@ class FRCTableVC:UIViewController{
     }()
     
     
-    var addBtn:UIButton = {
-        let btn = UIButton()
-        btn.translatesAutoresizingMaskIntoConstraints = false
+    var addBtn:ThemeAddButton = {
+        let btn = ThemeAddButton()
+//        btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
     
@@ -80,8 +80,13 @@ class FRCTableVC:UIViewController{
     
     
     func setupUI(){
-        self.view.addSubview(tableView)
+        
+//        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.isNavigationBarHidden = true
+        self.view.backgroundColor = .white
         self.view.addSubview(addBtn)
+        self.view.addSubview(tableView)
+        
         
         
         self.tableView.register(FRCTableCell.self, forCellReuseIdentifier: "FRCTableCell")
@@ -92,16 +97,11 @@ class FRCTableVC:UIViewController{
 //        NSLayoutConstraint.activate([tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 0),tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: 0),tableView.topAnchor.constraint(equalTo: view.topAnchor,constant: 100),tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -10)])
         
         
-        self.tableView.frame = CGRect(x: 20, y: 200, width: 250, height: 300)
-        self.addBtn.frame = CGRect(x: 100, y: 50, width: 100, height: 50)
+        self.tableView.frame = CGRect(x: 0, y: 50, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 150)
+        self.addBtn.frame = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - 100, width: 100, height: 40)
         
-        addBtn.backgroundColor = UIColor.gray
-        
-        addBtn.isUserInteractionEnabled = true
-        
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(addDummyRecord))
-        
-        addBtn.addTarget(self, action: #selector(addDummyRecord), for: .touchUpInside)
+      
+        addBtn.addTarget(self, action: #selector(moveToPlayerAddVC), for: .touchUpInside)
     }
     
     
@@ -127,6 +127,22 @@ class FRCTableVC:UIViewController{
             
         }
         
+        
+    }
+    
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        print("Trait changed")
+    }
+    
+    
+    @objc func moveToPlayerAddVC(){
+        
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        
+        let vc = main.instantiateViewController(withIdentifier: "FRCPlayerAddVC") as! FRCPlayerAddVC
+        
+        self.navigationController?.present(vc, animated: true)
         
     }
 }
