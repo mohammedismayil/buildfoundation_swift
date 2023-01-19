@@ -24,7 +24,7 @@ class FRCPlayerAddVC: UIViewController{
         
         
         self.view.addSubview(addBtn)
-        self.addBtn.frame = CGRect(x: UIScreen.main.bounds.width / 2, y: 200, width: 100, height: 40)
+        self.addBtn.frame = CGRect(x: (UIScreen.main.bounds.width / 2) - 50 , y:( self.view.frame.height / 2 ) - 20 , width: 100, height: 40)
         addBtn.addTarget(self, action: #selector(addDummyRecord), for: .touchUpInside)
         
     }

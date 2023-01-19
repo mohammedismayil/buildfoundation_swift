@@ -85,7 +85,7 @@ class FRCTableVC:UIViewController{
         self.navigationController?.isNavigationBarHidden = true
         self.view.backgroundColor = .white
         self.view.addSubview(addBtn)
-        self.view.addSubview(tableView)
+//        self.view.addSubview(tableView)
         
         
         
