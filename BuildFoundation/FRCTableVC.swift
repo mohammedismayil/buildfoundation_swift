@@ -98,7 +98,7 @@ class FRCTableVC:UIViewController{
         
         
         self.tableView.frame = CGRect(x: 0, y: 50, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 150)
-        self.addBtn.frame = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - 100, width: 100, height: 40)
+        self.addBtn.frame = CGRect(x:( UIScreen.main.bounds.width / 2)-50, y: UIScreen.main.bounds.height - 100, width: 100, height: 40)
         
       
         addBtn.addTarget(self, action: #selector(moveToPlayerAddVC), for: .touchUpInside)
