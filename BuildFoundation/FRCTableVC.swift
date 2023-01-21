@@ -29,19 +29,9 @@ class FRCTableVC:UIViewController{
     }()
     
     let appDel = UIApplication.shared.delegate as! AppDelegate
-//     var fetchController : NSFetchedResultsController<PlayerEntity>? = {
-//
-//         let request = PlayerEntity.createFetchRequest()
-//
-//         let sort = NSSortDescriptor(key: "name", ascending: false)
-//        request.sortDescriptors = [sort]
-//
-//
-//         let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: appDel
-//            .persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
-//
-//        return frc
-//    }()
+    
+    var coreDataHandler:CoreDataManager!
+
     
     var fetchController:NSFetchedResultsController<PlayerEntity>!
     
@@ -58,24 +48,12 @@ class FRCTableVC:UIViewController{
     
     func fetchSavedData(){
         
-        let request = PlayerEntity.createFetchRequest()
-       
-                let sort = NSSortDescriptor(key: "name", ascending: false)
-               request.sortDescriptors = [sort]
-
-                fetchController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: appDel.persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        coreDataHandler = CoreDataManager.shared
         
+        coreDataHandler.fetchPlayersData()
         
-        fetchController.delegate  = self
+        coreDataHandler?.playerFetchController.delegate = self
         
-        
-        do {
-         try   fetchController.performFetch()
-            
-        }catch{
-            
-            
-        }
     }
     
     
@@ -85,7 +63,7 @@ class FRCTableVC:UIViewController{
         self.navigationController?.isNavigationBarHidden = true
         self.view.backgroundColor = .white
         self.view.addSubview(addBtn)
-//        self.view.addSubview(tableView)
+        self.view.addSubview(tableView)
         
         
         
@@ -152,7 +130,7 @@ extension FRCTableVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell(withIdentifier: "FRCTableCell", for: indexPath) as! FRCTableCell
         
-        cell.playerNameLbl?.text = fetchController.object(at: indexPath).name
+        cell.playerNameLbl?.text = CoreDataManager.shared.playerFetchController.object(at: indexPath).name
         return cell
     }
     
@@ -160,7 +138,7 @@ extension FRCTableVC: UITableViewDelegate,UITableViewDataSource{
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        guard let fc = fetchController else {return 0  }
+        guard let fc = CoreDataManager.shared.playerFetchController else {return 0  }
         return fc.sections?[section].numberOfObjects ?? 0
     }
     
