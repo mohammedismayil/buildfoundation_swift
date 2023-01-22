@@ -45,4 +45,22 @@ class CoreDataManager{
             
         }
     }
+    
+    
+    func addDummyPlayerData(){
+        let managedContext = appDel.persistentContainer.viewContext
+        let entity = PlayerEntity(entity:NSEntityDescription.entity(forEntityName: "PlayerEntity", in : managedContext)! , insertInto: managedContext)
+        
+        entity.name = "Peter"
+
+                //4
+        do {
+            try managedContext.save()
+            
+            
+            
+        }catch {
+            
+        }
+    }
 }

@@ -11,8 +11,8 @@ import CoreData
 
 class FRCPlayerAddVC: UIViewController{
     
-    
-    let appDel = UIApplication.shared.delegate as! AppDelegate
+    var coreDataHandler:CoreDataManager!
+   
     var addBtn:ThemeAddButton = {
         let btn = ThemeAddButton()
 //        btn.translatesAutoresizingMaskIntoConstraints = false
@@ -21,7 +21,7 @@ class FRCPlayerAddVC: UIViewController{
     
     override func viewDidLoad() {
         
-        
+        coreDataHandler = CoreDataManager.shared
         
         self.view.addSubview(addBtn)
         self.addBtn.frame = CGRect(x: (UIScreen.main.bounds.width / 2) - 50 , y:( self.view.frame.height / 2 ) - 20 , width: 100, height: 40)
@@ -30,27 +30,6 @@ class FRCPlayerAddVC: UIViewController{
     }
     
     @objc func addDummyRecord(){
-        
-        
-        
-            
-        
-        
-        let managedContext = appDel.persistentContainer.viewContext
-        let entity = PlayerEntity(entity:NSEntityDescription.entity(forEntityName: "PlayerEntity", in : managedContext)! , insertInto: managedContext)
-        
-        entity.name = "Peter"
-
-                //4
-        do {
-            try managedContext.save()
-            
-            
-            
-        }catch {
-            
-        }
-        
-        
+        coreDataHandler.addDummyPlayerData()
     }
 }
