@@ -83,30 +83,7 @@ class FRCTableVC:UIViewController{
     }
     
     
-    @objc func addDummyRecord(){
-        
-        
-        
-            
-        
-        
-        let managedContext = appDel.persistentContainer.viewContext
-        let entity = PlayerEntity(entity:NSEntityDescription.entity(forEntityName: "PlayerEntity", in : managedContext)! , insertInto: managedContext)
-        
-        entity.name = "Peter"
-
-                //4
-        do {
-            try managedContext.save()
-            
-            
-            
-        }catch {
-            
-        }
-        
-        
-    }
+   
     
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -123,15 +100,37 @@ class FRCTableVC:UIViewController{
         self.navigationController?.present(vc, animated: true)
         
     }
+    
+    func checkBaselineOffSet(indexPath:IndexPath)->FRCTableCell{
+        
+        let cell =  tableView.dequeueReusableCell(withIdentifier: "FRCTableCell", for: indexPath) as! FRCTableCell
+        
+        var attributedText = NSMutableAttributedString()
+        attributedText.append(NSAttributedString(string: "Lorem ipsum dolor "))
+//        attributedText.addAttributes([NSAttributedString.Key.baselineOffset:4], range: NSRange(location: 0, length: 4))
+//
+        attributedText.addAttributes([NSAttributedString.Key.baselineOffset:20], range: NSRange(location: 0, length: 5))
+//        attributedText.addAttributes([NSAttributedString.Key.baselineOffset:5], range: NSRange(location: 6, length: 5))
+//        attributedText.addAttributes([NSAttributedString.Key.baselineOffset:7], range: NSRange(location: 11, length: 5))
+//        attributedText.addAttributes([NSAttributedString.Key.baselineOffset:9], range: NSRange(location: 16, length: 5))
+//
+//        attributedText.addAttributes([NSAttributedString.Key.baselineOffset:-3], range: NSRange(location: 21, length: 5))
+        cell.playerNameLbl.textAlignment =  .center
+        cell.playerNameLbl.attributedText = attributedText
+//        cell.playerNameLbl?.text = CoreDataManager.shared.playerFetchController.object(at: indexPath).name
+        return cell
+    }
 }
 
 
 extension FRCTableVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell =  tableView.dequeueReusableCell(withIdentifier: "FRCTableCell", for: indexPath) as! FRCTableCell
+//        let cell =  tableView.dequeueReusableCell(withIdentifier: "FRCTableCell", for: indexPath) as! FRCTableCell
+//
+//        cell.playerNameLbl?.text = CoreDataManager.shared.playerFetchController.object(at: indexPath).name
+//        return cell
         
-        cell.playerNameLbl?.text = CoreDataManager.shared.playerFetchController.object(at: indexPath).name
-        return cell
+        checkBaselineOffSet(indexPath: indexPath)
     }
     
     
@@ -142,6 +141,12 @@ extension FRCTableVC: UITableViewDelegate,UITableViewDataSource{
         return fc.sections?[section].numberOfObjects ?? 0
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//       return  UITableView.automaticDimension
+        
+        return 80
+        
+    }
     
 }
 extension FRCTableVC:NSFetchedResultsControllerDelegate{
