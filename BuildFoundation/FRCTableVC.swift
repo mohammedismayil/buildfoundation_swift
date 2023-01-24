@@ -28,14 +28,8 @@ class FRCTableVC:UIViewController{
         return btn
     }()
     
-    let appDel = UIApplication.shared.delegate as! AppDelegate
-    
     var coreDataHandler:CoreDataManager!
 
-    
-    var fetchController:NSFetchedResultsController<PlayerEntity>!
-    
-    
     
     override func viewDidLoad() {
         
@@ -125,12 +119,12 @@ class FRCTableVC:UIViewController{
 
 extension FRCTableVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell =  tableView.dequeueReusableCell(withIdentifier: "FRCTableCell", for: indexPath) as! FRCTableCell
-//
-//        cell.playerNameLbl?.text = CoreDataManager.shared.playerFetchController.object(at: indexPath).name
-//        return cell
+        let cell =  tableView.dequeueReusableCell(withIdentifier: "FRCTableCell", for: indexPath) as! FRCTableCell
+
+        cell.playerNameLbl?.text = CoreDataManager.shared.playerFetchController.object(at: indexPath).name
+        return cell
         
-        checkBaselineOffSet(indexPath: indexPath)
+//        checkBaselineOffSet(indexPath: indexPath)
     }
     
     
