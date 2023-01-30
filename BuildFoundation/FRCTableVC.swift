@@ -167,3 +167,11 @@ extension FRCTableVC:NSFetchedResultsControllerDelegate{
         }
 }
 
+
+
+//Even though we are using protocol here no need to extend variables ( as we have given default implementaion/)/
+extension FRCTableVC: Subscriber{
+   
+    
+    
+}
