@@ -74,7 +74,7 @@ class FRCTableVC2:UIViewController{
         self.addBtn.frame = CGRect(x:( UIScreen.main.bounds.width / 2)-50, y: UIScreen.main.bounds.height - 100, width: 100, height: 40)
         
       
-        addBtn.addTarget(self, action: #selector(addDummyRecord), for: .touchUpInside)
+        addBtn.addTarget(self, action: #selector(moveToPlayerAddVC), for: .touchUpInside)
     }
     
     
