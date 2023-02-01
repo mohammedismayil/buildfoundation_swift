@@ -40,7 +40,7 @@ class FRCTableVC:UIViewController{
     
     override func viewDidLoad() {
         
-       
+        initNotificationObserver()
         fetchSavedData()
         setupUI()
        
@@ -57,7 +57,12 @@ class FRCTableVC:UIViewController{
         
     }
     
-    
+    func initNotificationObserver(){
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(addPlayer), name: Notification.Name("AddDummyPlayers"), object: nil)
+       
+    }
     func setupUI(){
         
 //        self.navigationController?.navigationBar.isHidden = true
@@ -187,4 +192,11 @@ extension FRCTableVC:NSFetchedResultsControllerDelegate{
         }
 }
 
-
+extension FRCTableVC:DummyPlayerAddition{
+    
+    @objc func addPlayer() {
+        
+        print("Notification addplayers observed in FRCTableVC")
+        self.coreDataHandler.addDummyPlayerData()
+    }
+}

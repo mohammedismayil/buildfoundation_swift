@@ -34,7 +34,7 @@ class FRCTableVC2:UIViewController{
     
     override func viewDidLoad() {
         
-       
+        initNotificationObserver()
         fetchSavedData()
         setupUI()
        
@@ -75,6 +75,13 @@ class FRCTableVC2:UIViewController{
         
       
         addBtn.addTarget(self, action: #selector(moveToPlayerAddVC), for: .touchUpInside)
+    }
+    
+    func initNotificationObserver(){
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(addPlayer), name: Notification.Name("AddDummyPlayers"), object: nil)
+       
     }
     
     
@@ -179,4 +186,12 @@ extension FRCTableVC: Subscriber{
    
     
     
+}
+extension FRCTableVC2:DummyPlayerAddition{
+    
+    @objc func addPlayer() {
+        
+        print("Notification addplayers observed in FRCTableVC2")
+        self.coreDataHandler.addDummyPlayerData()
+    }
 }

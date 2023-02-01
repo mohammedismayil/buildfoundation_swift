@@ -30,6 +30,8 @@ class FRCPlayerAddVC: UIViewController{
     }
     
     @objc func addDummyRecord(){
-        coreDataHandler.addDummyPlayerData()
+        
+        NotificationCenter.default.post(name: Notification.Name("AddDummyPlayers"), object: nil)
+//        coreDataHandler.addDummyPlayerData()
     }
 }
