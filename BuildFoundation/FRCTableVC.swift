@@ -16,7 +16,7 @@ class FRCTableVC:UIViewController{
     
     let tableView:UITableView = {
         
-        let tbl = UITableView()
+        let tbl = UITableView(frame: .zero, style: .grouped)
         tbl.translatesAutoresizingMaskIntoConstraints = false
         return tbl
     }()
@@ -79,16 +79,31 @@ class FRCTableVC:UIViewController{
         tableView.delegate = self
         tableView.dataSource = self
         
-//        NSLayoutConstraint.activate([tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 0),tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: 0),tableView.topAnchor.constraint(equalTo: view.topAnchor,constant: 100),tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -10)])
+//        NSLayoutConstraint.activate([tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 0),tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: 0),tableView.topAnchor.constraint(equalTo: view.topAnchor,constant: 100),tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -40)])
         
         
-        self.tableView.frame = CGRect(x: 0, y: 50, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 150)
+        self.tableView.frame = CGRect(x: 0
+                                      , y: view.safeAreaInsets.top + 20, width: UIScreen.main.bounds.width, height: 300)
         self.addBtn.frame = CGRect(x:( UIScreen.main.bounds.width / 2) - 100, y: UIScreen.main.bounds.height - 100, width: 100, height: 40)
         self.nextButton.frame = CGRect(x: self.addBtn.frame.maxX + 25, y: UIScreen.main.bounds.height - 100, width: 100, height: 40)
         
       
         addBtn.addTarget(self, action: #selector(moveToPlayerAddVC), for: .touchUpInside)
         nextButton.addTarget(self, action: #selector(moveToNextFRCVC), for: .touchUpInside)
+        tableView.layoutIfNeeded()
+        tableView.setNeedsLayout()
+    }
+    
+    
+    
+    override func viewDidLayoutSubviews() {
+        
+        
+        print("Table view contentSize : \(self.tableView.contentSize.height)")
+        
+//        self.tableView.frame = CGRect(x: 0
+//                                      , y: view.safeAreaInsets.top + 20, width: UIScreen.main.bounds.width, height: self.tableView.contentSize.height
+//        )
     }
     
     
@@ -150,6 +165,13 @@ extension FRCTableVC: UITableViewDelegate,UITableViewDataSource{
         return cell
         
 //        checkBaselineOffSet(indexPath: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0
     }
     
     
