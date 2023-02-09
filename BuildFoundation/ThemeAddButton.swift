@@ -13,6 +13,7 @@ import UIKit
 class ThemeAddButton:UIButton{
     
     
+    var cornerRadius = 10
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -20,6 +21,8 @@ class ThemeAddButton:UIButton{
         self.backgroundColor = UIColor.purple
           self.setTitleColor(.white, for: .normal)
           self.setTitle("Add", for: .normal)
+        self.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        self.layer.cornerRadius = CGFloat(cornerRadius)
 
     }
     

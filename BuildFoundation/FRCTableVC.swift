@@ -84,7 +84,7 @@ class FRCTableVC:UIViewController{
         
         self.tableView.frame = CGRect(x: 0
                                       , y: view.safeAreaInsets.top + 20, width: UIScreen.main.bounds.width, height: 300)
-        self.addBtn.frame = CGRect(x:( UIScreen.main.bounds.width / 2) - 100, y: UIScreen.main.bounds.height - 100, width: 100, height: 40)
+        self.addBtn.frame = CGRect(x:( UIScreen.main.bounds.width / 2) - 100 - 12.5, y: UIScreen.main.bounds.height - 100, width: 100, height: 40)
         self.nextButton.frame = CGRect(x: self.addBtn.frame.maxX + 25, y: UIScreen.main.bounds.height - 100, width: 100, height: 40)
         
       
