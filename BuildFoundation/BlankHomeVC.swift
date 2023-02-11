@@ -29,6 +29,14 @@ class BlankHomeVC:UIViewController{
         return btn
     }()
     
+    var removeBtn:ThemeAddButton = {
+        let btn = ThemeAddButton()
+        btn.setTitle("Remove", for: .normal)
+//        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+
     
     override func viewDidLoad() {
         setupUI()
@@ -45,8 +53,12 @@ class BlankHomeVC:UIViewController{
 //        nameTextView.textColor = .green
         
         self.view.addSubview(addBtn)
-        self.addBtn.frame = CGRect(x:( UIScreen.main.bounds.width / 2) - 50, y: UIScreen.main.bounds.height - 100, width: 100, height: 40)
+        self.view.addSubview(removeBtn)
+        self.addBtn.frame = CGRect(x:( UIScreen.main.bounds.width / 2) - 75, y: UIScreen.main.bounds.height - 100, width: 100, height: 40)
         addBtn.addTarget(self, action: #selector(addButtonAction), for: .touchUpInside)
+        
+        self.removeBtn.frame = CGRect(x:addBtn.frame.maxX + 25, y: addBtn.frame.minY, width: 100, height: 40)
+        removeBtn.addTarget(self, action: #selector(removeButtonAction), for: .touchUpInside)
 //        NSLayoutConstraint.activate([
 //
 //            nameTextView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
@@ -62,51 +74,57 @@ class BlankHomeVC:UIViewController{
         donateIntent()
     }
     
+    @objc func removeButtonAction(){
+        
+        donateIntent()
+    }
+    
+    
     
     func donateIntent(){
-        let groupName = INSpeakableString(spokenPhrase: "Vineeth")
+        
+        let groupName = INSpeakableString(spokenPhrase: "manimaran")
         
         
-        if #available(iOS 14.0, *) {
-            // Add the user's avatar to the intent.
-            let image = INImage(named: "user")
-            let sendMessageIntent = INSendMessageIntent.init(recipients: [INPerson(personHandle: INPersonHandle(value: "1", type: .unknown), nameComponents: nil, displayName: "Vineeth", image: image, contactIdentifier: "1", customIdentifier: "chat")],
-                                                             outgoingMessageType: .outgoingMessageText,
-                                                             content: "Testing",
-                                                             speakableGroupName: groupName,
-                                                             conversationIdentifier: "com.fhetch.message",
-                                                             serviceName: nil, sender: nil, attachments: nil)
-           
-            sendMessageIntent.setImage(image, forParameterNamed: \.speakableGroupName)
-            
-            
-            
-            // Donate the intent.
-            let interaction = INInteraction(intent: sendMessageIntent, response: nil)
-            interaction.direction = .incoming
-            interaction.groupIdentifier = "TestIdentifier123"
-            interaction.donate(completion: { error in
-                DispatchQueue.main.async {
-                    if error != nil {
-                        print("Interaction donate Failure with error: \(error as Any)")
-                    } else {
-                        // Do something, e.g. send the content to a contact.
-                        print("Successfully donated interaction")
-                    }
-                }
-            })
-            
-            
+          if #available(iOS 14.0, *) {
+              let sendMessageIntent = INSendMessageIntent.init(recipients: nil,
+                                                               outgoingMessageType: .outgoingMessageText,
+                                                               content: "sharetesting",
+                                                               speakableGroupName: groupName,
+                                                               conversationIdentifier: "com.ismayil.share1",
+                                                               serviceName: nil, sender: nil, attachments: nil)
+              let image = INImage(named: "Image1")
+              sendMessageIntent.setImage(image, forParameterNamed: \.speakableGroupName)
+
+              IntentHandler.donateInteractionUsing(intent: sendMessageIntent, isOutgoing: true)
+          } else {
+              // Fallback on earlier versions
+          }
+        
+    }
+    
+    func removeAllIntents(){
+        INInteraction.deleteAll()
+    }
+    
+}
+
+struct IntentHandler {
+  static func donateInteractionUsing(intent: INSendMessageIntent, isOutgoing: Bool) {
+    
+    // Donate the intent.
+    let interaction = INInteraction(intent: intent, response: nil)
+    interaction.direction = isOutgoing ? .outgoing : .incoming
+    interaction.groupIdentifier = "1677899"
+    interaction.donate(completion: { error in
+      DispatchQueue.main.async {
+        if error != nil {
+          print("Interaction donate Failure with error: \(error as Any)")
         } else {
-            // Fallback on earlier versions
+            // Do something, e.g. send the content to a contact.
+          print("Successfully donated interaction")
         }
-        
-        
-    }
-    
-    func incomingMessageIntent(){
-        
-    }
-        
-    
+      }
+    })
+  }
 }

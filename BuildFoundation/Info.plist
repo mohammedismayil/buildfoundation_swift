@@ -23,7 +23,6 @@
 	</dict>
 	<key>NSUserActivityTypes</key>
 	<array>
-		<string></string>
 		<string>INSendMessageIntent</string>
 	</array>
 </dict>

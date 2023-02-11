@@ -7,7 +7,9 @@
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>IntentsSupported</key>
-			<string>INSendMessageIntent</string>
+			<array>
+				<string>INSendMessageIntent</string>
+			</array>
 			<key>NSExtensionActivationRule</key>
 			<string>TRUEPREDICATE</string>
 		</dict>
