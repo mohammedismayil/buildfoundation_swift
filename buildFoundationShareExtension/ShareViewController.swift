@@ -7,6 +7,7 @@
 
 import UIKit
 import Social
+import Intents
 
 class ShareViewController: SLComposeServiceViewController {
 
@@ -20,6 +21,15 @@ class ShareViewController: SLComposeServiceViewController {
     
         // Inform the host that we're done, so it un-blocks its UI. Note: Alternatively you could call super's -didSelectPost, which will similarly complete the extension context.
         self.extensionContext!.completeRequest(returningItems: [], completionHandler: nil)
+    }
+    
+    override func viewDidLoad() {
+        // Populate the recipient property with the metadata in case the user taps a suggestion from the share sheet.
+                let intent = self.extensionContext?.intent as? INSendMessageIntent
+                if intent != nil {
+                    let conversationIdentifier = intent!.conversationIdentifier
+//                    self.recipient = recipient(identifier: conversationIdentifier!)
+                }
     }
 
     override func configurationItems() -> [Any]! {
