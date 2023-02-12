@@ -18,6 +18,22 @@ class RouteVC:UIViewController{
         
         if let intent = self.extensionContext?.intent as? INSendMessageIntent{
             print(intent)
+            
+            if intent.conversationIdentifier == "newchat"{
+               
+                moveToNewChat()
+            }
         }
+    }
+    
+    func moveToNewChat(){
+        
+        let storyBoard = UIStoryboard(name: "MainInterface", bundle: nil)
+        
+        let vc = storyBoard.instantiateViewController(withIdentifier: "CreateChatVC") as! CreateChatVC
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+        
     }
 }
