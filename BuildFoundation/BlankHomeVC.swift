@@ -54,10 +54,10 @@ class BlankHomeVC:UIViewController{
         
         self.view.addSubview(addBtn)
         self.view.addSubview(removeBtn)
-        self.addBtn.frame = CGRect(x:( UIScreen.main.bounds.width / 2) - 75, y: UIScreen.main.bounds.height - 100, width: 100, height: 40)
+        self.addBtn.frame = CGRect(x:( UIScreen.main.bounds.width / 2) - 110, y: UIScreen.main.bounds.height - 100, width: 100, height: 40)
         addBtn.addTarget(self, action: #selector(addButtonAction), for: .touchUpInside)
         
-        self.removeBtn.frame = CGRect(x:addBtn.frame.maxX + 25, y: addBtn.frame.minY, width: 100, height: 40)
+        self.removeBtn.frame = CGRect(x:addBtn.frame.maxX + 20, y: addBtn.frame.minY, width: 100, height: 40)
         removeBtn.addTarget(self, action: #selector(removeButtonAction), for: .touchUpInside)
 //        NSLayoutConstraint.activate([
 //
