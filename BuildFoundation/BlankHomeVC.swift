@@ -70,13 +70,11 @@ class BlankHomeVC:UIViewController{
     }
     
     @objc func addButtonAction(){
-        
-        donateIntent()
+       
     }
     
     @objc func removeButtonAction(){
-        
-        donateIntent()
+       
     }
     
     
@@ -127,4 +125,12 @@ struct IntentHandler {
       }
     })
   }
+}
+
+extension UIViewController{
+    
+    
+    func showToast(){
+        
+    }
 }
