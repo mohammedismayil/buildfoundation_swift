@@ -36,6 +36,8 @@ class BlankHomeVC:UIViewController{
         return btn
     }()
     
+    var player: FootballPlayer!
+    
 
     
     override func viewDidLoad() {
@@ -67,10 +69,15 @@ class BlankHomeVC:UIViewController{
 //            nameTextView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50)
 //
 //        ])
+        player = FootballPlayer()
+        self.player.addObserver(self, forKeyPath: "playerName", options: [.new,.old],context: nil)
     }
     
     @objc func addButtonAction(){
        
+        player.playerName = "Messi"
+        
+        print("Add Tapped")
     }
     
     @objc func removeButtonAction(){
@@ -103,6 +110,19 @@ class BlankHomeVC:UIViewController{
     
     func removeAllIntents(){
         INInteraction.deleteAll()
+    }
+    
+    
+//    override class func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+//        print("Observed \(keyPath) \(object ?? "")")
+//    }
+//    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+
+        print("Observed \(keyPath) \(object ?? "")")
+        if keyPath == "text" {
+            print("do something when the textField's text your observing changes")
+        }
     }
     
 }
