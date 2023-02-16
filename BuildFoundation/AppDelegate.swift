@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let nav  = UINavigationController()
         
-        nav.viewControllers = [BlankHomeVC()]
+        nav.viewControllers = [UILayoutPriorityVC()]
             window?.rootViewController = nav
             
             window?.makeKeyAndVisible()
