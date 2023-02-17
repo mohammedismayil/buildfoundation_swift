@@ -18,6 +18,7 @@ class UILayoutPriorityVC : UIViewController{
     
     var addBtnLeadingConstraint:NSLayoutConstraint!
     var addBtnTrailingConstraint:NSLayoutConstraint!
+    var addBtnWidthConstraint:NSLayoutConstraint!
     
     override func viewDidLoad() {
         
@@ -31,11 +32,17 @@ class UILayoutPriorityVC : UIViewController{
         
         addBtnLeadingConstraint = addBtn.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 30)
         addBtnLeadingConstraint.isActive = true
-        addBtnLeadingConstraint.priority = UILayoutPriority(1000)
+        addBtnLeadingConstraint.priority = UILayoutPriority.required
+        
+        
+        addBtnWidthConstraint = addBtn.widthAnchor.constraint(equalToConstant: 100)
+        addBtnWidthConstraint.isActive = true
+        addBtnWidthConstraint.priority = UILayoutPriority.required
         
         addBtnTrailingConstraint = addBtn.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -30)
         addBtnTrailingConstraint.isActive = true
-        addBtnTrailingConstraint.priority = UILayoutPriority(1000)
+        addBtnTrailingConstraint.priority = UILayoutPriority.required
+        
 //        addBtn.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
         
