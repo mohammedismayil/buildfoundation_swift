@@ -35,18 +35,21 @@ class UILayoutPriorityVC : UIViewController{
         addBtnLeadingConstraint.priority = UILayoutPriority.required
         
         
+      
+        
+//        addBtnTrailingConstraint = addBtn.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10)
+//        addBtnTrailingConstraint.isActive = true
+//        addBtnTrailingConstraint.priority = UILayoutPriority.required
+//
+//        addBtn.translatesAutoresizingMaskIntoConstraints = false
+        
         addBtnWidthConstraint = addBtn.widthAnchor.constraint(equalToConstant: 100)
         addBtnWidthConstraint.isActive = true
-        addBtnWidthConstraint.priority = UILayoutPriority.required
-        
-        addBtnTrailingConstraint = addBtn.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -30)
-        addBtnTrailingConstraint.isActive = true
-        addBtnTrailingConstraint.priority = UILayoutPriority.required
-        
-//        addBtn.translatesAutoresizingMaskIntoConstraints = false
+        addBtnWidthConstraint.priority = UILayoutPriority.defaultHigh
         NSLayoutConstraint.activate([
         
-            addBtn.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 200),addBtn.heightAnchor.constraint(equalToConstant: 100)
+            addBtn.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 200),addBtn.heightAnchor.constraint(equalToConstant: 100),
+            addBtn.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0)
         ])
         
         

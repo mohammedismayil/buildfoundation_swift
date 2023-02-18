@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let nav  = UINavigationController()
         
-        nav.viewControllers = [UILayoutPriorityVC()]
+        nav.viewControllers = [NotifyTravelTaskMapVC()]
             window?.rootViewController = nav
             
             window?.makeKeyAndVisible()

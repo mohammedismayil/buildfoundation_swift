@@ -25,5 +25,11 @@
 	<array>
 		<string>INSendMessageIntent</string>
 	</array>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Need to update notify the Trip</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Need to notify the Trip</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Need to always update notify the Trip</string>
 </dict>
 </plist>
