@@ -7,177 +7,81 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CFEF9782-7D58-4CDC-A185-5DF9279CFAB0"
+            uuid = "C083CFCC-E227-4CEA-8C59-70CC075121E2"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BuildFoundation/FRCPlayerAddVC.swift"
+            filePath = "BuildFoundation/NotifyTravelTask/NotifyTravelTaskMapVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "addDummyRecord()"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D49827BA-EC73-4B5C-9521-1B416376587E"
+            uuid = "DA5CF88C-3901-4E90-B85E-7315B4C5BDB9"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BuildFoundation/CoreDataManager.swift"
+            filePath = "BuildFoundation/NotifyTravelTask/LocationNotificationScheduler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "addDummyPlayerData()"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "requestNotification(notificationInfo:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "74A948CD-F940-49EE-8796-3546F0ABDB8F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BuildFoundation/CoreDataManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "addDummyPlayerData()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "74A948CD-F940-49EE-8796-3546F0ABDB8F - e06761fe42447973"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildFoundation.CoreDataManager.addDummyPlayerData() -&gt; ()"
-                  moduleName = "BuildFoundation"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ismayil-16441/Desktop/BuildFoundation/BuildFoundation/CoreDataManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "62"
-                  endingLineNumber = "62"
-                  offsetFromSymbolStart = "624">
-               </Location>
-               <Location
-                  uuid = "74A948CD-F940-49EE-8796-3546F0ABDB8F - e06761fe42447973"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildFoundation.CoreDataManager.addDummyPlayerData() -&gt; ()"
-                  moduleName = "BuildFoundation"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ismayil-16441/Desktop/BuildFoundation/BuildFoundation/CoreDataManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "62"
-                  endingLineNumber = "62"
-                  offsetFromSymbolStart = "720">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8BC9A931-A870-4AF1-BEB5-78FCA7F38F0D"
+            uuid = "AEBCD49A-0725-446B-8608-49BDEC004593"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BuildFoundation/FRCTableVC2.swift"
+            filePath = "BuildFoundation/NotifyTravelTask/NotifyTravelTaskMapVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "moveToPlayerAddVC()"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0B9F213E-1407-491B-AABD-FBA632E3C4CB"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BuildFoundation/NotifyTravelTaskMapVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "0B9F213E-1407-491B-AABD-FBA632E3C4CB - 51857802bdbf058b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in BuildFoundation.NotifyTravelTaskMapVC.viewDidLoad() -&gt; ()"
-                  moduleName = "BuildFoundation"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ismayil-16441/Desktop/BuildFoundation/BuildFoundation/NotifyTravelTaskMapVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "51"
-                  endingLineNumber = "51"
-                  offsetFromSymbolStart = "444">
-               </Location>
-               <Location
-                  uuid = "0B9F213E-1407-491B-AABD-FBA632E3C4CB - 51857802bdbf058b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in BuildFoundation.NotifyTravelTaskMapVC.viewDidLoad() -&gt; ()"
-                  moduleName = "BuildFoundation"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ismayil-16441/Desktop/BuildFoundation/BuildFoundation/NotifyTravelTaskMapVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "51"
-                  endingLineNumber = "51"
-                  offsetFromSymbolStart = "708">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DAA9A992-2941-45DA-B119-1D4651FA20AC"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BuildFoundation/NotifyTravelTaskMapVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3A50EC0B-D51A-4000-8479-B12EA344CD21"
+            uuid = "3874B7AF-1ED1-4A58-807E-F5AFF303EB52"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BuildFoundation/NotifyTravelTaskMapVC.swift"
+            filePath = "BuildFoundation/NotifyTravelTask/LocationNotificationScheduler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "locationManager(_:didUpdateLocations:)"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "requestNotification(notificationInfo:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0CE1BC86-74E4-4738-8522-6D7CCC7BCEBF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildFoundation/NotifyTravelTask/LocationNotificationScheduler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "delegate"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
