@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = nav
             
             window?.makeKeyAndVisible()
+        registerForPushNotifications(application: application)
         return true
     }
 
@@ -88,3 +89,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate : UNUserNotificationCenterDelegate{
+    
+    
+    func registerForPushNotifications(application: UIApplication) {
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.delegate = self
+        notificationCenter.requestAuthorization(options: [.badge, .sound, .alert], completionHandler: {(granted, error) in
+            if (granted)
+            {
+                DispatchQueue.main.async {
+                  UIApplication.shared.registerForRemoteNotifications()
+                }
+            }
+            else{
+                //Do stuff if unsuccessful...
+                print("Unsuccessful in registering for push notifications")
+            }
+        })
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        //Handle the notification
+        print("User Info = ",notification.request.content.userInfo)
+        completionHandler([.alert, .badge, .sound])
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        //handle the notification
+        print("Push notification: ",response.notification.request.content.userInfo)
+
+        completionHandler()
+    }
+}

@@ -27,6 +27,8 @@ class NotifyTravelTaskMapVC : UIViewController {
     
     private let locationNotificationScheduler = LocationNotificationScheduler()
     
+    private let locationManager = CLLocationManager()
+    
     
     override func viewDidLoad() {
         
@@ -36,7 +38,20 @@ class NotifyTravelTaskMapVC : UIViewController {
         self.view.addSubview(mapView)
         self.view.addSubview(addLocationBtn)
         addLocationBtn.addTarget(self, action: #selector(addLocationNotification), for: .touchUpInside)
-        locationNotificationScheduler.delegate = self
+        locationManager.delegate = self
+        DispatchQueue.global().async {
+            self.locationManager.requestWhenInUseAuthorization()
+            if CLLocationManager.locationServicesEnabled() {
+              // your code here
+                self.locationManager.allowsBackgroundLocationUpdates = true
+                self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+                self.locationManager.startMonitoringSignificantLocationChanges()
+                self.locationManager.startUpdatingLocation()
+                self.locationManager.allowsBackgroundLocationUpdates = true
+                self.locationManager.delegate = self
+              }
+        }
+//        locationNotificationScheduler.delegate = self
 
 //        self.locationManager.requestAlwaysAuthorization()
 
@@ -72,16 +87,76 @@ class NotifyTravelTaskMapVC : UIViewController {
     }
     
     @objc func addLocationNotification(){
-        let notificationInfo = LocationNotificationInfo(notificationId: "nyc_promenade_notification_id",
+        let notificationInfo = LocationNotificationInfo(notificationId: "changeID",
                                                         locationId: "mumbai_location",
                                                         radius: 2000,
-                                                        latitude: 37.335400,
-                                                        longitude: -122.009201,
+                                                        latitude: 8.979190357456387,
+                                                        longitude: 77.29608919452437,
                                                         title: "Welcome to the Mumbai,India !",
                                                         body: "Tap to see more information",
                                                         data: ["location": "NYC Brooklyn Promenade"])
         
-        locationNotificationScheduler.requestNotification(with: notificationInfo)
+//        locationNotificationScheduler.requestNotification(with: notificationInfo)
+        
+        let notification = notificationContent()
+//        let destRegion = destinationRegion(notificationInfo: notificationInfo)
+        let center = CLLocationCoordinate2D(latitude: 37.335400, longitude: -122.009201)
+        let region = CLCircularRegion(center: center, radius: 2000.0, identifier: "Headquarters")
+        region.notifyOnEntry = true
+        region.notifyOnExit = false
+        let trigger = UNLocationNotificationTrigger(region: region, repeats: false)
+//        let trigger = UNLocationNotificationTrigger(region: destRegion, repeats: true)
+        
+        let request = UNNotificationRequest(identifier: notificationInfo.notificationId,
+                                            content: notification,
+                                            trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { [weak self] (error) in
+            
+        }
+    }
+    func notificationContent() -> UNMutableNotificationContent {
+        let content = UNMutableNotificationContent()
+        content.title = "You've reached"
+        content.body = "Great"
+
+        return content
+    }
+    
+    func destinationRegion(notificationInfo: LocationNotificationInfo) -> CLCircularRegion {
+        let destRegion = CLCircularRegion(center: notificationInfo.coordinates,
+                                          radius: notificationInfo.radius,
+                                          identifier: notificationInfo.locationId)
+        destRegion.notifyOnEntry = true
+        destRegion.notifyOnExit = true
+        return destRegion
+    }
+    
+    
+    @objc func remindNotification(){
+        var referenceDate = Calendar.current.date(byAdding: .second, value: 5, to: Date())!
+        for i in 0...2 { // one every 5 seconds, so total = 12
+            let content = UNMutableNotificationContent()
+            content.title = "Hey Ismayil Wake up \(i)"
+            content.body = "Body"
+
+            var dateComponents = DateComponents(calendar: Calendar.current)
+            // 5 seconds interval here but you can set whatever you want, for hours, minutes, etc.
+            dateComponents.second = 5
+            //dateComponents.hour = X
+            // [...]
+            
+            guard let nextTriggerDate = dateComponents.calendar?.date(byAdding: dateComponents, to: referenceDate),
+                  let nextTriggerDateCompnents = dateComponents.calendar?.dateComponents([.second], from: nextTriggerDate) else {
+                return
+            }
+            referenceDate = nextTriggerDate
+
+            print(nextTriggerDate)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: nextTriggerDateCompnents, repeats: true)
+            let request = UNNotificationRequest(identifier: "notif-\(i)", content: content, trigger: trigger)
+            UNUserNotificationCenter.current().add(request)
+        }
     }
 }
 
@@ -91,9 +166,7 @@ extension NotifyTravelTaskMapVC : CLLocationManagerDelegate,MKMapViewDelegate{
         if let location = locations.last{
             let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-            self.mapView.setRegion(region, animated: true)
-//            mapView.setCameraZoomRange(, animated: true)
-            self.mapView.setCenter(location.coordinate, animated: true)
+            print("Latitude \(location.coordinate.latitude)- \(location.coordinate.longitude)")
         }
     }
 }

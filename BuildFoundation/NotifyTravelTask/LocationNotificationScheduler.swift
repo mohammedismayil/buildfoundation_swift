@@ -97,15 +97,11 @@ private extension LocationNotificationScheduler {
     }
     
     func notificationContent(notificationInfo: LocationNotificationInfo) -> UNMutableNotificationContent {
-        let notification = UNMutableNotificationContent()
-        notification.title = notificationInfo.title
-        notification.body = notificationInfo.body
-        notification.sound = UNNotificationSound.default
-        
-        if let data = notificationInfo.data {
-            notification.userInfo = data
-        }
-        return notification
+        let content = UNMutableNotificationContent()
+        content.title = "You've reached"
+        content.body = "Great"
+
+        return content
     }
     
     func destinationRegion(notificationInfo: LocationNotificationInfo) -> CLCircularRegion {
