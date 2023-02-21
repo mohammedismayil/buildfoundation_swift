@@ -27,7 +27,26 @@ class NotifyTravelTaskMapVC : UIViewController {
     
     private let locationNotificationScheduler = LocationNotificationScheduler()
     
-//    private let locationManager = CLLocationManager()
+    //    private let locationManager = CLLocationManager()
+    
+    var locationIndex = 0
+    
+    var locationsArr = [LocationNotificationInfo(notificationId: "location1",
+                                                 locationId: "headquarters",
+                                                 radius: 2000,
+                                                 latitude: 9.873422,
+                                                 longitude: 78.186352,
+                                                 title: "Stop1",
+                                                 body: "Tap to see more information",
+                                                 data: ["location": "NYC Brooklyn Promenade"]),
+                        LocationNotificationInfo(notificationId: "location2",
+                                                 locationId: "headquarter2",
+                                                 radius: 2000,
+                                                 latitude: 9.897920920182221,
+                                                 longitude: 78.15336650782756,
+                                                 title: "Stop2",
+                                                 body: "Tap to see more information",
+                                                 data: ["location": "NYC Brooklyn Promenade"])]
     
     
     override func viewDidLoad() {
@@ -55,16 +74,11 @@ class NotifyTravelTaskMapVC : UIViewController {
     }
     
     @objc func addLocationNotification(){
-        let notificationInfo = LocationNotificationInfo(notificationId: "location1",
-                                                        locationId: "headquarters",
-                                                        radius: 2000,
-                                                        latitude: 37.335400,
-                                                        longitude: -122.009201,
-                                                        title: "Welcome to the Apple HQ!",
-                                                        body: "Tap to see more information",
-                                                        data: ["location": "NYC Brooklyn Promenade"])
+        let notificationInfo = locationsArr[locationIndex]
         
-                locationNotificationScheduler.requestNotification(with: notificationInfo)
+        locationIndex += 1
+        
+        locationNotificationScheduler.requestNotification(with: notificationInfo)
     }
     
     

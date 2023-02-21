@@ -33,6 +33,7 @@
 		6FAB6BD92996AAF3009E0BB9 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAB6BD82996AAF3009E0BB9 /* ShareViewController.swift */; };
 		6FAB6BDC2996AAF3009E0BB9 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FAB6BDA2996AAF3009E0BB9 /* MainInterface.storyboard */; };
 		6FAB6BE02996AAF3009E0BB9 /* buildFoundationShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6FAB6BD62996AAF3009E0BB9 /* buildFoundationShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6FAEC85429A5416000AC84CF /* arapalayamtosilaiman.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 6FAEC85329A5416000AC84CF /* arapalayamtosilaiman.gpx */; };
 		6FB7D9D629A26CAE009BD98E /* LocationNotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB7D9D329A26CAE009BD98E /* LocationNotificationScheduler.swift */; };
 		6FB7D9D729A26CAE009BD98E /* LocationNotificationSchedulerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB7D9D429A26CAE009BD98E /* LocationNotificationSchedulerDelegate.swift */; };
 		6FB7D9D829A26CAE009BD98E /* LocationNotificationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB7D9D529A26CAE009BD98E /* LocationNotificationInfo.swift */; };
@@ -113,6 +114,7 @@
 		6FAB6BD82996AAF3009E0BB9 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		6FAB6BDB2996AAF3009E0BB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		6FAB6BDD2996AAF3009E0BB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6FAEC85329A5416000AC84CF /* arapalayamtosilaiman.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = arapalayamtosilaiman.gpx; sourceTree = "<group>"; };
 		6FB7D9D329A26CAE009BD98E /* LocationNotificationScheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationNotificationScheduler.swift; sourceTree = "<group>"; };
 		6FB7D9D429A26CAE009BD98E /* LocationNotificationSchedulerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationNotificationSchedulerDelegate.swift; sourceTree = "<group>"; };
 		6FB7D9D529A26CAE009BD98E /* LocationNotificationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationNotificationInfo.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				6F7B83AD298AD7570051B66C /* FRCTableVC2.swift */,
 				6F7B83B1298AE10B0051B66C /* AddDummyPlayerProtocol.swift */,
 				6FB7D9D929A28767009BD98E /* SimulatedLocations.gpx */,
+				6FAEC85329A5416000AC84CF /* arapalayamtosilaiman.gpx */,
 				6F0957E9298975770022AC56 /* BlankHomeVC.swift */,
 				6F93ABFB299FF63100D56C21 /* UILayoutPriorityVC.swift */,
 				6FB7D9D229A26C8A009BD98E /* NotifyTravelTask */,
@@ -380,6 +383,7 @@
 				6F2EFB7C2973CD0E00FD5517 /* LaunchScreen.storyboard in Resources */,
 				6F2EFB792973CD0E00FD5517 /* Assets.xcassets in Resources */,
 				6F2EFB742973CD0D00FD5517 /* Main.storyboard in Resources */,
+				6FAEC85429A5416000AC84CF /* arapalayamtosilaiman.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
