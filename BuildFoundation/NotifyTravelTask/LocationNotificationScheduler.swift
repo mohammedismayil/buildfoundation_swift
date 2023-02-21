@@ -42,8 +42,8 @@ class LocationNotificationScheduler: NSObject {
                 self.locationManager.startUpdatingLocation()
                 self.locationManager.allowsBackgroundLocationUpdates = true
                 self.locationManager.delegate = self
-                  self.askForNotificationPermissions(notificationInfo: notificationInfo)
-              }
+                self.askForNotificationPermissions(notificationInfo: notificationInfo)
+            }
         }
 //        switch CLLocationManager.authorizationStatus() {
 //        case .notDetermined:
@@ -77,7 +77,7 @@ private extension LocationNotificationScheduler {
                 }
                 
                 self?.requestNotification(notificationInfo: notificationInfo)
-        })
+            })
     }
     
     func requestNotification(notificationInfo: LocationNotificationInfo) {
@@ -98,9 +98,9 @@ private extension LocationNotificationScheduler {
     
     func notificationContent(notificationInfo: LocationNotificationInfo) -> UNMutableNotificationContent {
         let content = UNMutableNotificationContent()
-        content.title = "You've reached"
+        content.title = "You've reached \(notificationInfo.title)"
         content.body = "Great"
-
+        
         return content
     }
     
