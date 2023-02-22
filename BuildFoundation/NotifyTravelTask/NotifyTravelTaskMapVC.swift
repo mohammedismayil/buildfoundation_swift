@@ -51,9 +51,10 @@ class NotifyTravelTaskMapVC : UIViewController {
     
     override func viewDidLoad() {
         
-        self.navigationController?.isNavigationBarHidden = true
+//        self.navigationController?.isNavigationBarHidden = true
         self.view.backgroundColor = .white
-        
+        let buttonItem = MKUserTrackingBarButtonItem(mapView: mapView)
+        self.navigationItem.rightBarButtonItem = buttonItem
         self.view.addSubview(mapView)
         self.view.addSubview(addLocationBtn)
         addLocationBtn.addTarget(self, action: #selector(addLocationNotification), for: .touchUpInside)
@@ -74,11 +75,15 @@ class NotifyTravelTaskMapVC : UIViewController {
     }
     
     @objc func addLocationNotification(){
-        let notificationInfo = locationsArr[locationIndex]
         
-        locationIndex += 1
         
-        locationNotificationScheduler.requestNotification(with: notificationInfo)
+        if locationIndex < locationsArr.count {
+            
+            let notificationInfo = locationsArr[locationIndex]
+            locationIndex += 1
+            locationNotificationScheduler.requestNotification(with: notificationInfo)
+        }
+        
     }
     
     
