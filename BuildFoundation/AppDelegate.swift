@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let nav  = UINavigationController()
         
-        nav.viewControllers = [NotifyTravelTaskMapVC()]
+        nav.viewControllers = [CASpringAnimationTestVC()]
             window?.rootViewController = nav
             
             window?.makeKeyAndVisible()

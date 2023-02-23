@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window = window
             let nav  = UINavigationController()
             
-            nav.viewControllers = [NotifyTravelTaskMapVC()]
+            nav.viewControllers = [CASpringAnimationTestVC()]
                 window.rootViewController = nav
                 
                 window.makeKeyAndVisible()
