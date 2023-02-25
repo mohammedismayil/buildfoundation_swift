@@ -7,7 +7,9 @@
 
 import Foundation
 
-
+class ARandomSubscriber: Subscriber{
+    
+}
 protocol Subscriber{
     var name:String!{get set}
 }
