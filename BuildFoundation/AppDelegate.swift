@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let nav  = UINavigationController()
         
-        nav.viewControllers = [CASpringAnimationTestVC()]
+        nav.viewControllers = [ShareIntentVC()]
             window?.rootViewController = nav
             
             window?.makeKeyAndVisible()

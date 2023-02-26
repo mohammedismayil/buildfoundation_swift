@@ -10,7 +10,7 @@ import UIKit
 import Intents
 
 
-class BlankHomeVC:UIViewController{
+class ShareIntentVC:UIViewController{
     
     
     

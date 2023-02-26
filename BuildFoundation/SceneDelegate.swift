@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window = window
             let nav  = UINavigationController()
             
-            nav.viewControllers = [CASpringAnimationTestVC()]
+            nav.viewControllers = [ShareIntentVC()]
                 window.rootViewController = nav
                 
                 window.makeKeyAndVisible()

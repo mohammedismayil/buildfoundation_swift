@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		6F04B762297B963C00B2B235 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F04B761297B963C00B2B235 /* CoreDataManager.swift */; };
 		6F0957E8298840F50022AC56 /* Protocol-DefaultImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0957E7298840F50022AC56 /* Protocol-DefaultImplementation.swift */; };
-		6F0957EA298975770022AC56 /* BlankHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0957E9298975770022AC56 /* BlankHomeVC.swift */; };
+		6F0957EA298975770022AC56 /* ShareIntentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0957E9298975770022AC56 /* ShareIntentVC.swift */; };
 		6F0BB9512978527A00B840C1 /* FRCPlayerAddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0BB9502978527A00B840C1 /* FRCPlayerAddVC.swift */; };
 		6F0BB953297853A500B840C1 /* ThemeAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0BB952297853A500B840C1 /* ThemeAddButton.swift */; };
 		6F2EFB6D2973CD0D00FD5517 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2EFB6C2973CD0D00FD5517 /* AppDelegate.swift */; };
@@ -86,7 +86,7 @@
 /* Begin PBXFileReference section */
 		6F04B761297B963C00B2B235 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		6F0957E7298840F50022AC56 /* Protocol-DefaultImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Protocol-DefaultImplementation.swift"; sourceTree = "<group>"; };
-		6F0957E9298975770022AC56 /* BlankHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankHomeVC.swift; sourceTree = "<group>"; };
+		6F0957E9298975770022AC56 /* ShareIntentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareIntentVC.swift; sourceTree = "<group>"; };
 		6F0BB9502978527A00B840C1 /* FRCPlayerAddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRCPlayerAddVC.swift; sourceTree = "<group>"; };
 		6F0BB952297853A500B840C1 /* ThemeAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAddButton.swift; sourceTree = "<group>"; };
 		6F2EFB692973CD0D00FD5517 /* BuildFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuildFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,7 +193,7 @@
 				6F7B83B1298AE10B0051B66C /* AddDummyPlayerProtocol.swift */,
 				6FB7D9D929A28767009BD98E /* SimulatedLocations.gpx */,
 				6FAEC85329A5416000AC84CF /* arapalayamtosilaiman.gpx */,
-				6F0957E9298975770022AC56 /* BlankHomeVC.swift */,
+				6F0957E9298975770022AC56 /* ShareIntentVC.swift */,
 				6F8009FF29A7A2FA001BA6BB /* CASpringAnimationTestVC.swift */,
 				6F93ABFB299FF63100D56C21 /* UILayoutPriorityVC.swift */,
 				6FB7D9D229A26C8A009BD98E /* NotifyTravelTask */,
@@ -439,7 +439,7 @@
 				6FD225C429A13407001F4553 /* NotifyTravelTaskMapVC.swift in Sources */,
 				6F2EFB6F2973CD0D00FD5517 /* SceneDelegate.swift in Sources */,
 				6F2EFB772973CD0D00FD5517 /* BuildFoundation.xcdatamodeld in Sources */,
-				6F0957EA298975770022AC56 /* BlankHomeVC.swift in Sources */,
+				6F0957EA298975770022AC56 /* ShareIntentVC.swift in Sources */,
 				6FB7D9D729A26CAE009BD98E /* LocationNotificationSchedulerDelegate.swift in Sources */,
 				6FFC8F962974536000EF9D5C /* PlayerEntity.swift in Sources */,
 				6FB7D9D829A26CAE009BD98E /* LocationNotificationInfo.swift in Sources */,
