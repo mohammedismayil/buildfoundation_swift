@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let nav  = UINavigationController()
         
-        nav.viewControllers = [ShareIntentVC()]
+        nav.viewControllers = [BlankInitialVC()]
             window?.rootViewController = nav
             
             window?.makeKeyAndVisible()

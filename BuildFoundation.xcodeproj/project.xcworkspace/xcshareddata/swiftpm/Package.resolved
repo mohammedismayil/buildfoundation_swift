@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "simplecustomuicomponentsswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mohammedismayil/SimpleCustomUIComponentsSwift",
+      "state" : {
+        "branch" : "main",
+        "revision" : "42196ee894ff8e3e63256f79582a491bf7462531"
+      }
+    }
+  ],
+  "version" : 2
+}
