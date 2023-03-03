@@ -12,8 +12,10 @@ class BlankInitialVC: UIViewController {
     
     
     var addBtn: CustomAddButton = {
-    
+        
         let btn = CustomAddButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        
         return btn
         
     }()
@@ -22,6 +24,11 @@ class BlankInitialVC: UIViewController {
         self.view.backgroundColor = .white
         
         self.view.addSubview(addBtn)
-        self.addBtn.frame = CGRect(x: 30, y: 50, width: 100, height: 50)
+        addBtn.alignCenterTo(_view: self.view)
+//        NSLayoutConstraint.activate([ addBtn.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: CGFloat(0)),
+//                                      addBtn.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: CGFloat(0)),
+//                                      addBtn.widthAnchor.constraint(equalToConstant: 100),
+//                                      addBtn.heightAnchor.constraint(equalToConstant: 50)])
+        
     }
 }
