@@ -14,5 +14,10 @@ extension UIView {
         
         NSLayoutConstraint.activate([ self.centerXAnchor.constraint(equalTo: _view.centerXAnchor, constant: CGFloat(0)),
                                       self.centerYAnchor.constraint(equalTo: _view.centerYAnchor, constant: CGFloat(0))])
-                                      }
-                                      }
+    }
+    
+    func setHeightAndWidth(height:CGFloat,width:CGFloat) {
+        NSLayoutConstraint.activate([self.widthAnchor.constraint(equalToConstant: width),
+                                     self.heightAnchor.constraint(equalToConstant: height)])
+    }
+}

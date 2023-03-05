@@ -25,10 +25,7 @@ class BlankInitialVC: UIViewController {
         
         self.view.addSubview(addBtn)
         addBtn.alignCenterTo(_view: self.view)
-//        NSLayoutConstraint.activate([ addBtn.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: CGFloat(0)),
-//                                      addBtn.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: CGFloat(0)),
-//                                      addBtn.widthAnchor.constraint(equalToConstant: 100),
-//                                      addBtn.heightAnchor.constraint(equalToConstant: 50)])
+        addBtn.setHeightAndWidth(height: 50, width: 100)
         
     }
 }
