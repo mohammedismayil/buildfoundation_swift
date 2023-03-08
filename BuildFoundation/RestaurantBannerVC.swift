@@ -8,35 +8,7 @@
 import Foundation
 import UIKit
 
-class BannerCVC: UICollectionViewCell {
-    
-    private let bannerImage: UIImageView =  {
-        let banner = UIImageView(frame: .zero)
-        banner.translatesAutoresizingMaskIntoConstraints = false
-        return banner
-    }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupViews() {
-        self.contentView.addSubview(bannerImage)
-        NSLayoutConstraint.activate([
-            bannerImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
-            bannerImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
-            bannerImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
-        ])
-        bannerImage.setHeightAndWidth(height: 200, width: UIScreen.main.bounds.width)
-        bannerImage.image = UIImage(named: "banner-user")
-        
-    }
-}
+
 class RestaurantBannerVC: UIViewController {
     
     private let collectionView: UICollectionView =  {
@@ -79,12 +51,37 @@ extension RestaurantBannerVC: UICollectionViewDelegate , UICollectionViewDataSou
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerCVC", for: indexPath) as! BannerCVC
         return cell
     }
-    
-    
-    
 }
 
-
+class BannerCVC: UICollectionViewCell {
+    
+    private let bannerImage: UIImageView =  {
+        let banner = UIImageView(frame: .zero)
+        banner.translatesAutoresizingMaskIntoConstraints = false
+        return banner
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupViews()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupViews() {
+        self.contentView.addSubview(bannerImage)
+        NSLayoutConstraint.activate([
+            bannerImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
+            bannerImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
+            bannerImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
+        ])
+        bannerImage.setHeightAndWidth(height: 200, width: UIScreen.main.bounds.width)
+        bannerImage.image = UIImage(named: "banner-user")
+        
+    }
+}
 class CustomHomeBannerLayout:UICollectionViewFlowLayout{
     
     
