@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+import SimpleCustomUIComponentsSwift
 
 class RestaurantBannerVC: UIViewController {
     
@@ -19,10 +19,19 @@ class RestaurantBannerVC: UIViewController {
         return collectionView
     }()
     
+    private let checkThreadButton: CustomAddButton = {
+        let button = CustomAddButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Check Thread", for: .normal)
+        return button
+        
+    }()
+    
     override func viewDidLoad() {
         self.navigationController?.isNavigationBarHidden =  true
         self.view.backgroundColor = .white
         self.view.addSubview(collectionView)
+        self.view.addSubview(checkThreadButton)
         
         collectionView.backgroundColor = .gray
         NSLayoutConstraint.activate([
@@ -31,6 +40,8 @@ class RestaurantBannerVC: UIViewController {
             collectionView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 80),
         ])
         collectionView.setHeightAndWidth(height: 200, width: self.view.frame.width)
+        checkThreadButton.setHeightAndWidth(height: 50, width: 150)
+        checkThreadButton.alignCenterTo(_view: self.view)
         collectionView.isPagingEnabled = true
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -92,4 +103,6 @@ class CustomHomeBannerLayout:UICollectionViewFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
+    
+   
 }
