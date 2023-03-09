@@ -40,7 +40,7 @@ class BannerCVC: UICollectionViewCell {
 class RestaurantBannerVC: UIViewController {
     
     private let collectionView: UICollectionView =  {
-        let layout = UICollectionViewFlowLayout()
+        let layout = CustomHomeBannerLayout()
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -62,12 +62,13 @@ class RestaurantBannerVC: UIViewController {
         collectionView.isPagingEnabled = true
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.collectionViewLayout = CustomHomeBannerLayout()
         collectionView.register(BannerCVC.self, forCellWithReuseIdentifier: "BannerCVC")
     }
     
     
 }
-extension RestaurantBannerVC: UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
+extension RestaurantBannerVC: UICollectionViewDelegate , UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -79,12 +80,19 @@ extension RestaurantBannerVC: UICollectionViewDelegate , UICollectionViewDataSou
         return cell
     }
     
+    
+    
+}
+
+
+class CustomHomeBannerLayout:UICollectionViewFlowLayout{
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width, height: 200)
+        return CGSize(width: UIScreen.main.bounds.width, height: 200)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0 
+        return 0
     }
-    
 }
