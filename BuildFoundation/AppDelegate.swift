@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let nav  = UINavigationController()
         
-        nav.viewControllers = [BlankInitialVC()]
+        nav.viewControllers = [RestaurantBannerVC()]
             window?.rootViewController = nav
             
             window?.makeKeyAndVisible()
