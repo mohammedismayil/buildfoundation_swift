@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             window?.makeKeyAndVisible()
         registerForPushNotifications(application: application)
+        InteractionUpdater.setUpConfig()
         return true
     }
 

@@ -47,6 +47,12 @@ class RestaurantBannerVC: UIViewController {
         collectionView.dataSource = self
         collectionView.collectionViewLayout = CustomHomeBannerLayout()
         collectionView.register(BannerCVC.self, forCellWithReuseIdentifier: "BannerCVC")
+        checkThreadButton.addTarget(self, action: #selector(checkThreadAction), for: .touchUpInside)
+        InteractionUpdater.shared.updateInteraction(interaction: "didload")
+    }
+    
+    @objc func checkThreadAction() {
+        InteractionUpdater.shared.updateInteraction(interaction: "checkThreadAction")
     }
     
     

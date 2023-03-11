@@ -42,6 +42,7 @@
 		6FB7D9D629A26CAE009BD98E /* LocationNotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB7D9D329A26CAE009BD98E /* LocationNotificationScheduler.swift */; };
 		6FB7D9D729A26CAE009BD98E /* LocationNotificationSchedulerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB7D9D429A26CAE009BD98E /* LocationNotificationSchedulerDelegate.swift */; };
 		6FB7D9D829A26CAE009BD98E /* LocationNotificationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB7D9D529A26CAE009BD98E /* LocationNotificationInfo.swift */; };
+		6FD1336A29BF903A00992979 /* InteractionUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD1336929BF903A00992979 /* InteractionUpdater.swift */; };
 		6FD225C429A13407001F4553 /* NotifyTravelTaskMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD225C329A13407001F4553 /* NotifyTravelTaskMapVC.swift */; };
 		6FFC8F92297446BB00EF9D5C /* FRCTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFC8F91297446BB00EF9D5C /* FRCTableVC.swift */; };
 		6FFC8F942974479700EF9D5C /* FRCTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFC8F932974479700EF9D5C /* FRCTableCell.swift */; };
@@ -128,6 +129,7 @@
 		6FB7D9D429A26CAE009BD98E /* LocationNotificationSchedulerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationNotificationSchedulerDelegate.swift; sourceTree = "<group>"; };
 		6FB7D9D529A26CAE009BD98E /* LocationNotificationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationNotificationInfo.swift; sourceTree = "<group>"; };
 		6FB7D9D929A28767009BD98E /* SimulatedLocations.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SimulatedLocations.gpx; sourceTree = "<group>"; };
+		6FD1336929BF903A00992979 /* InteractionUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionUpdater.swift; sourceTree = "<group>"; };
 		6FD225C329A13407001F4553 /* NotifyTravelTaskMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyTravelTaskMapVC.swift; sourceTree = "<group>"; };
 		6FFC8F91297446BB00EF9D5C /* FRCTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRCTableVC.swift; sourceTree = "<group>"; };
 		6FFC8F932974479700EF9D5C /* FRCTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRCTableCell.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				6F1F05EF29B7BF36001156A6 /* Extensions */,
 				6F2AEEAD29B114A300F7B892 /* BlankInitialVC.swift */,
 				6F99FD5F29BBA36000E00971 /* RestaurantBannerVC.swift */,
+				6FD1336929BF903A00992979 /* InteractionUpdater.swift */,
 				6F7B83B1298AE10B0051B66C /* AddDummyPlayerProtocol.swift */,
 				6FB7D9D929A28767009BD98E /* SimulatedLocations.gpx */,
 				6FAEC85329A5416000AC84CF /* arapalayamtosilaiman.gpx */,
@@ -464,6 +467,7 @@
 				6F7B83B2298AE10B0051B66C /* AddDummyPlayerProtocol.swift in Sources */,
 				6F0BB9512978527A00B840C1 /* FRCPlayerAddVC.swift in Sources */,
 				6FFC8F9829746D1100EF9D5C /* AddPlayerVC.swift in Sources */,
+				6FD1336A29BF903A00992979 /* InteractionUpdater.swift in Sources */,
 				6F1F05F129B7C0DF001156A6 /* LayoutConstraintsExtension.swift in Sources */,
 				6F7B83AE298AD7570051B66C /* FRCTableVC2.swift in Sources */,
 				6F04B762297B963C00B2B235 /* CoreDataManager.swift in Sources */,
