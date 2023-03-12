@@ -26,6 +26,11 @@ class InteractionUpdater {
     }
     
     func updateInteraction<T>(interaction:T) {
-        print("Interaction \(interaction)")
+        DispatchQueue.main.async {
+            print("Interaction Main thread\(interaction)")
+        }
+        DispatchQueue.global().async {
+            print("Interaction Global thread\(interaction)")
+        }
     }
 }
