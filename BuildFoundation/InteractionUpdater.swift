@@ -15,11 +15,6 @@ class InteractionUpdater {
         print("InteractionUpdater initiated")
     }
     
-    
-//    required init(){
-//
-//    }
-//
     static func setUpConfig() {
     
         print("Setting up")
