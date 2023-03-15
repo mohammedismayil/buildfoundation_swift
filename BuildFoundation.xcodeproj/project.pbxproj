@@ -44,6 +44,8 @@
 		6FB7D9D829A26CAE009BD98E /* LocationNotificationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB7D9D529A26CAE009BD98E /* LocationNotificationInfo.swift */; };
 		6FD1336A29BF903A00992979 /* InteractionUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD1336929BF903A00992979 /* InteractionUpdater.swift */; };
 		6FD225C429A13407001F4553 /* NotifyTravelTaskMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD225C329A13407001F4553 /* NotifyTravelTaskMapVC.swift */; };
+		6FDCCB3429C1816F0021429C /* CheckCrashReportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDCCB3329C1816F0021429C /* CheckCrashReportVC.swift */; };
+		6FDCCB3729C1C8350021429C /* Demo.sh in Resources */ = {isa = PBXBuildFile; fileRef = 6FDCCB3629C1C2440021429C /* Demo.sh */; };
 		6FFC8F92297446BB00EF9D5C /* FRCTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFC8F91297446BB00EF9D5C /* FRCTableVC.swift */; };
 		6FFC8F942974479700EF9D5C /* FRCTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFC8F932974479700EF9D5C /* FRCTableCell.swift */; };
 		6FFC8F962974536000EF9D5C /* PlayerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFC8F952974536000EF9D5C /* PlayerEntity.swift */; };
@@ -131,6 +133,8 @@
 		6FB7D9D929A28767009BD98E /* SimulatedLocations.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SimulatedLocations.gpx; sourceTree = "<group>"; };
 		6FD1336929BF903A00992979 /* InteractionUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionUpdater.swift; sourceTree = "<group>"; };
 		6FD225C329A13407001F4553 /* NotifyTravelTaskMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyTravelTaskMapVC.swift; sourceTree = "<group>"; };
+		6FDCCB3329C1816F0021429C /* CheckCrashReportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCrashReportVC.swift; sourceTree = "<group>"; };
+		6FDCCB3629C1C2440021429C /* Demo.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = Demo.sh; sourceTree = "<group>"; };
 		6FFC8F91297446BB00EF9D5C /* FRCTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRCTableVC.swift; sourceTree = "<group>"; };
 		6FFC8F932974479700EF9D5C /* FRCTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRCTableCell.swift; sourceTree = "<group>"; };
 		6FFC8F952974536000EF9D5C /* PlayerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerEntity.swift; sourceTree = "<group>"; };
@@ -215,10 +219,12 @@
 				6F2EFB6E2973CD0D00FD5517 /* SceneDelegate.swift */,
 				6F2EFB9F2973CD6200FD5517 /* FrameVsBounds.swift */,
 				6FFC8F91297446BB00EF9D5C /* FRCTableVC.swift */,
+				6FDCCB3629C1C2440021429C /* Demo.sh */,
 				6F7B83AD298AD7570051B66C /* FRCTableVC2.swift */,
 				6F1F05EF29B7BF36001156A6 /* Extensions */,
 				6F2AEEAD29B114A300F7B892 /* BlankInitialVC.swift */,
 				6F99FD5F29BBA36000E00971 /* RestaurantBannerVC.swift */,
+				6FDCCB3329C1816F0021429C /* CheckCrashReportVC.swift */,
 				6FD1336929BF903A00992979 /* InteractionUpdater.swift */,
 				6F7B83B1298AE10B0051B66C /* AddDummyPlayerProtocol.swift */,
 				6FB7D9D929A28767009BD98E /* SimulatedLocations.gpx */,
@@ -297,6 +303,7 @@
 				6F2EFB662973CD0D00FD5517 /* Frameworks */,
 				6F2EFB672973CD0D00FD5517 /* Resources */,
 				6FAB6BE12996AAF3009E0BB9 /* Embed Foundation Extensions */,
+				6FDCCB3529C1C2050021429C /* Demonstrating Run Script */,
 			);
 			buildRules = (
 			);
@@ -420,6 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F2EFB7C2973CD0E00FD5517 /* LaunchScreen.storyboard in Resources */,
+				6FDCCB3729C1C8350021429C /* Demo.sh in Resources */,
 				6F2EFB792973CD0E00FD5517 /* Assets.xcassets in Resources */,
 				6F2EFB742973CD0D00FD5517 /* Main.storyboard in Resources */,
 				6FAEC85429A5416000AC84CF /* arapalayamtosilaiman.gpx in Resources */,
@@ -450,6 +458,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6FDCCB3529C1C2050021429C /* Demonstrating Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Demonstrating Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nsh \"./BuildFoundation/Demo.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6F2EFB652973CD0D00FD5517 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -463,6 +492,7 @@
 				6F2EFB712973CD0D00FD5517 /* ViewController.swift in Sources */,
 				6FB7D9D629A26CAE009BD98E /* LocationNotificationScheduler.swift in Sources */,
 				6F0957E8298840F50022AC56 /* Protocol-DefaultImplementation.swift in Sources */,
+				6FDCCB3429C1816F0021429C /* CheckCrashReportVC.swift in Sources */,
 				6FFC8F942974479700EF9D5C /* FRCTableCell.swift in Sources */,
 				6F7B83B2298AE10B0051B66C /* AddDummyPlayerProtocol.swift in Sources */,
 				6F0BB9512978527A00B840C1 /* FRCPlayerAddVC.swift in Sources */,
@@ -683,6 +713,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F67CP85VVA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BuildFoundation/Info.plist;

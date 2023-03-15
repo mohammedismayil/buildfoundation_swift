@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window = window
             let nav  = UINavigationController()
             
-            nav.viewControllers = [RestaurantBannerVC()]
+            nav.viewControllers = [CheckCrashReportVC()]
                 window.rootViewController = nav
                 
                 window.makeKeyAndVisible()

@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let nav  = UINavigationController()
         
-        nav.viewControllers = [RestaurantBannerVC()]
+        nav.viewControllers = [CheckCrashReportVC()]
             window?.rootViewController = nav
             
             window?.makeKeyAndVisible()
