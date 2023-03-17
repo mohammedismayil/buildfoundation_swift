@@ -17,12 +17,13 @@ class TransitionCollectionViewViewController2: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-////        let cross = #imageLiteral(resourceName: "cross").withRenderingMode(.alwaysTemplate)
-//        closeButton.setImage(cross, for: .normal)
-//        closeButton.tintColor = .white
+        let cross = #imageLiteral(resourceName: "cross").withRenderingMode(.alwaysTemplate)
+        closeButton.setImage(cross, for: .normal)
+        closeButton.tintColor = .white
 
         locationImageView.image = data.image
         locationLabel.text = data.title
+        locationImageView.layer.cornerRadius = 50
     }
 
     @IBAction func close(_ sender: Any) {
