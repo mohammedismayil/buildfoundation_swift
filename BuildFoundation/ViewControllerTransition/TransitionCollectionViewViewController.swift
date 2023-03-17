@@ -137,5 +137,6 @@ final class TransitionCollectionViewCell: UICollectionViewCell {
     func configure(with cellData: TransitionCellData) {
         locationImageView.image = cellData.image
         locationLabel.text = cellData.title
+        locationImageView.frame = CGRect(x: 200, y: 700, width: 50, height: 50)
     }
 }
