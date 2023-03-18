@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol TransitionManagerDelegate: AnyObject {
-    func requiredVC()->UIView
+    func requiredVC()->(cellImageView:UIView,imageRect:CGRect)
 }
 class ViewControllerTransitionManager: NSObject,UIViewControllerTransitioningDelegate{
 
@@ -20,22 +20,17 @@ class ViewControllerTransitionManager: NSObject,UIViewControllerTransitioningDel
             // 16
             guard let firstViewController = presenting as? TransitionCollectionViewViewController,
                 let secondViewController = presented as? TransitionCollectionViewViewController2,
-                  let selectedCellImageViewSnapshot = delegate?.requiredVC()
+                  let selectedCellImageViewSnapshot = delegate?.requiredVC().cellImageView,
+                  let imageRect = delegate?.requiredVC().imageRect
                 else { return nil }
 
-            animator = ViewControllerTransition(type: .present, firstViewController: firstViewController, secondViewController: secondViewController, selectedCellImageViewSnapshot: selectedCellImageViewSnapshot)
+        animator = ViewControllerTransition(type: .present, secondViewController: secondViewController, selectedCellImageViewSnapshot: selectedCellImageViewSnapshot, cellImageViewRect: imageRect)
             return animator
         }
 
         // 3
         func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-            // 17
-//            guard let secondViewController = dismissed as? TransitionCollectionViewViewController2,
-//                let selectedCellImageViewSnapshot = delegate?.requiredVC()
-//                else { return nil }
-//
-//            animator = ViewControllerTransition(type: .dismiss, firstViewController: self, secondViewController: secondViewController, selectedCellImageViewSnapshot: selectedCellImageViewSnapshot)
-//            return animator
+ 
             return nil
         }
     
@@ -44,27 +39,16 @@ final class ViewControllerTransition: NSObject, UIViewControllerAnimatedTransiti
     
     // 9
     
-    static let duration: TimeInterval = 3
+    static let duration: TimeInterval = 0.2
     
     private let type: PresentationType
-    private let firstViewController: TransitionCollectionViewViewController
-    private let secondViewController: TransitionCollectionViewViewController2
     private var selectedCellImageViewSnapshot: UIView
     private let cellImageViewRect: CGRect
     
-    init?(type: PresentationType, firstViewController: TransitionCollectionViewViewController, secondViewController: TransitionCollectionViewViewController2, selectedCellImageViewSnapshot: UIView) {
+    init?(type: PresentationType, secondViewController: TransitionCollectionViewViewController2, selectedCellImageViewSnapshot: UIView, cellImageViewRect:CGRect) {
         self.type = type
-        self.firstViewController = firstViewController
-        self.secondViewController = secondViewController
         self.selectedCellImageViewSnapshot = selectedCellImageViewSnapshot
-        
-        guard let window = firstViewController.view.window ,
-              let selectedCell = firstViewController.selectedCell
-        else { return nil }
-        
-        // 11
-        self.cellImageViewRect = selectedCell.locationImageView.convert(selectedCell.locationImageView.bounds, to: window)
-        
+        self.cellImageViewRect = cellImageViewRect
     }
     
     // 12
@@ -79,7 +63,7 @@ final class ViewControllerTransition: NSObject, UIViewControllerAnimatedTransiti
         let containerView = transitionContext.containerView
         
         // 19
-        guard let toView = secondViewController.view
+        guard let vc2 = transitionContext.viewController(forKey: .to) as? TransitionCollectionViewViewController2,let toView = vc2.view
         else {
             transitionContext.completeTransition(false)
             return
@@ -88,10 +72,10 @@ final class ViewControllerTransition: NSObject, UIViewControllerAnimatedTransiti
         containerView.addSubview(toView)
         
         guard
-            let selectedCell = firstViewController.selectedCell,
-            let window = firstViewController.view.window ?? secondViewController.view.window,
+            let vc = transitionContext.viewController(forKey: .from) as? TransitionCollectionViewViewController, let selectedCell =  vc.selectedCell,
+            let window = vc.view.window,
             let cellImageSnapshot = selectedCell.locationImageView.snapshotView(afterScreenUpdates: true),
-            let controllerImageSnapshot = secondViewController.locationImageView.snapshotView(afterScreenUpdates: true)
+            let controllerImageSnapshot = vc2.locationImageView.snapshotView(afterScreenUpdates: true)
                 
         else {
             transitionContext.completeTransition(true)
@@ -101,37 +85,29 @@ final class ViewControllerTransition: NSObject, UIViewControllerAnimatedTransiti
         
         let backgroundView: UIView
         let fadeView = UIView(frame: containerView.bounds)
-        fadeView.backgroundColor = secondViewController.view.backgroundColor
+        fadeView.backgroundColor = vc2.view.backgroundColor
         selectedCellImageViewSnapshot = cellImageSnapshot
         backgroundView = UIView(frame: containerView.bounds)
         backgroundView.addSubview(fadeView)
         fadeView.alpha = 0
         toView.alpha = 0
-        [backgroundView, selectedCellImageViewSnapshot, controllerImageSnapshot].forEach { containerView.addSubview($0) }
-        let controllerImageViewRect = secondViewController.locationImageView.convert(secondViewController.locationImageView.bounds, to: window)
+        containerView.addSubview(backgroundView)
+        containerView.addSubview(selectedCellImageViewSnapshot)
+        containerView.addSubview(controllerImageSnapshot)
+       
+        let controllerImageViewRect = vc2.locationImageView.convert(vc2.locationImageView.bounds, to: window)
         
-        [selectedCellImageViewSnapshot, controllerImageSnapshot].forEach {
-            $0.frame = cellImageViewRect
-            $0.layer.cornerRadius =  12
-            $0.layer.masksToBounds = true
-        }
+        selectedCellImageViewSnapshot.frame = cellImageViewRect
+        controllerImageSnapshot.frame = cellImageViewRect
         controllerImageSnapshot.alpha = 0
         selectedCellImageViewSnapshot.alpha = 1
-        
-        
         performAnimation(duration: Self.duration) {
-            
             self.selectedCellImageViewSnapshot.alpha = 0
             controllerImageSnapshot.alpha = 1
-            // 38
             self.selectedCellImageViewSnapshot.frame =  controllerImageViewRect
             controllerImageSnapshot.frame =  controllerImageViewRect
             fadeView.alpha = 1
-            [controllerImageSnapshot, self.selectedCellImageViewSnapshot].forEach {
-                $0.layer.cornerRadius = 0
-            }
         } completion: { (success) in
-            // 29
             self.selectedCellImageViewSnapshot.removeFromSuperview()
             controllerImageSnapshot.removeFromSuperview()
             backgroundView.removeFromSuperview()

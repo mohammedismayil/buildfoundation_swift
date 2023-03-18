@@ -11,6 +11,7 @@ class TransitionCollectionViewViewController: UIViewController {
 
     var selectedCell: TransitionCollectionViewCell?
     var selectedCellImageViewSnapshot: UIView?
+    var imageRect: CGRect?
 
     @IBOutlet private var transitioncollectionView: UICollectionView!
     
@@ -69,6 +70,10 @@ extension TransitionCollectionViewViewController: UICollectionViewDelegate, UICo
         // 7
         selectedCellImageViewSnapshot = selectedCell?.locationImageView.snapshotView(afterScreenUpdates: false)
         
+        if let selectedCell = selectedCell, let window = self.view.window {
+            imageRect = selectedCell.locationImageView.convert(selectedCell.locationImageView.bounds, to: window)
+        }
+       
         presentSecondViewController(with: SampleTransitionImages.data[indexPath.row])
     }
 
@@ -78,8 +83,8 @@ extension TransitionCollectionViewViewController: UICollectionViewDelegate, UICo
     }
 }
 extension TransitionCollectionViewViewController: TransitionManagerDelegate {
-    func requiredVC()->UIView {
-        return selectedCellImageViewSnapshot ?? UIView()
+    func requiredVC() -> (cellImageView: UIView, imageRect: CGRect) {
+        return (selectedCellImageViewSnapshot ?? UIView() ,imageRect ?? CGRect())
     }
 }
 //extension TransitionCollectionViewViewController: UIViewControllerTransitioningDelegate {
