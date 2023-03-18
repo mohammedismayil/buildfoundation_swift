@@ -85,8 +85,8 @@ extension TransitionCollectionViewViewController: UICollectionViewDelegate, UICo
     }
 }
 extension TransitionCollectionViewViewController: TransitionManagerDelegate {
-    func requiredVC() -> (cellImageView: UIView, imageRect: CGRect) {
-        return (selectedCellImageViewSnapshot ?? UIView() ,imageRect ?? CGRect())
+    func snapShotView() ->  UIView {
+        return selectedCell?.locationImageView ?? UIView()
     }
 }
 //extension TransitionCollectionViewViewController: UIViewControllerTransitioningDelegate {
