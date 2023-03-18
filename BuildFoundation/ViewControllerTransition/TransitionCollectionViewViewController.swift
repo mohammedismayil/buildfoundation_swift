@@ -10,6 +10,7 @@ import UIKit
 class TransitionCollectionViewViewController: UIViewController {
 
     var selectedCell: TransitionCollectionViewCell?
+    var selectedIndex: IndexPath?
     var selectedCellImageViewSnapshot: UIView?
     var imageRect: CGRect?
 
@@ -66,6 +67,7 @@ extension TransitionCollectionViewViewController: UICollectionViewDelegate, UICo
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // 6
+        selectedIndex = indexPath
         selectedCell = collectionView.cellForItem(at: indexPath) as? TransitionCollectionViewCell
         // 7
         selectedCellImageViewSnapshot = selectedCell?.locationImageView.snapshotView(afterScreenUpdates: false)

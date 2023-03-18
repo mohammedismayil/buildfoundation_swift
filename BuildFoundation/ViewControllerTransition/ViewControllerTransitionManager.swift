@@ -17,14 +17,8 @@ class ViewControllerTransitionManager: NSObject,UIViewControllerTransitioningDel
     var delegate: TransitionManagerDelegate?
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-            // 16
-            guard let firstViewController = presenting as? TransitionCollectionViewViewController,
-                let secondViewController = presented as? TransitionCollectionViewViewController2,
-                  let selectedCellImageViewSnapshot = delegate?.requiredVC().cellImageView,
-                  let imageRect = delegate?.requiredVC().imageRect
-                else { return nil }
-
-        animator = ViewControllerTransition(type: .present, secondViewController: secondViewController, selectedCellImageViewSnapshot: selectedCellImageViewSnapshot, cellImageViewRect: imageRect)
+    
+        animator = ViewControllerTransition(type: .present, delegate: delegate)
             return animator
         }
 
@@ -39,16 +33,15 @@ final class ViewControllerTransition: NSObject, UIViewControllerAnimatedTransiti
     
     // 9
     
-    static let duration: TimeInterval = 0.2
+    static let duration: TimeInterval = 4
     
     private let type: PresentationType
-    private var selectedCellImageViewSnapshot: UIView
-    private let cellImageViewRect: CGRect
+    var delegate: TransitionManagerDelegate?
+    var selectedCellImageViewSnapshot = UIView()
     
-    init?(type: PresentationType, secondViewController: TransitionCollectionViewViewController2, selectedCellImageViewSnapshot: UIView, cellImageViewRect:CGRect) {
+    init?(type: PresentationType,delegate:TransitionManagerDelegate?) {
         self.type = type
-        self.selectedCellImageViewSnapshot = selectedCellImageViewSnapshot
-        self.cellImageViewRect = cellImageViewRect
+        self.delegate = delegate
     }
     
     // 12
@@ -86,6 +79,7 @@ final class ViewControllerTransition: NSObject, UIViewControllerAnimatedTransiti
         let backgroundView: UIView
         let fadeView = UIView(frame: containerView.bounds)
         fadeView.backgroundColor = vc2.view.backgroundColor
+       
         selectedCellImageViewSnapshot = cellImageSnapshot
         backgroundView = UIView(frame: containerView.bounds)
         backgroundView.addSubview(fadeView)
@@ -96,6 +90,10 @@ final class ViewControllerTransition: NSObject, UIViewControllerAnimatedTransiti
         containerView.addSubview(controllerImageSnapshot)
        
         let controllerImageViewRect = vc2.locationImageView.convert(vc2.locationImageView.bounds, to: window)
+        
+        let cellImageViewRect =
+        selectedCell.locationImageView.convert(selectedCell.locationImageView.bounds, to: window)
+        vc2.locationImageView.convert(vc2.locationImageView.bounds, to: window)
         
         selectedCellImageViewSnapshot.frame = cellImageViewRect
         controllerImageSnapshot.frame = cellImageViewRect
