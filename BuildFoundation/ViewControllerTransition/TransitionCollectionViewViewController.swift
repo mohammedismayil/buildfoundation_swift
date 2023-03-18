@@ -14,8 +14,9 @@ class TransitionCollectionViewViewController: UIViewController {
 
     @IBOutlet private var transitioncollectionView: UICollectionView!
     
-    var animator: ViewControllerTransitionManager?
+    
 
+    var transitionManager = ViewControllerTransitionManager()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,8 +42,9 @@ class TransitionCollectionViewViewController: UIViewController {
         let secondViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TransitionCollectionViewViewController2") as! TransitionCollectionViewViewController2
 
         // 4
-        secondViewController.transitioningDelegate = self
+        secondViewController.transitioningDelegate = transitionManager
 
+        transitionManager.delegate = self
         secondViewController.modalPresentationStyle = .fullScreen
         secondViewController.data = data
         present(secondViewController, animated: true)
@@ -75,31 +77,36 @@ extension TransitionCollectionViewViewController: UICollectionViewDelegate, UICo
         return .init(width: width, height: width)
     }
 }
-extension TransitionCollectionViewViewController: UIViewControllerTransitioningDelegate {
-
-    // 2
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        // 16
-        guard let firstViewController = presenting as? TransitionCollectionViewViewController,
-            let secondViewController = presented as? TransitionCollectionViewViewController2,
-            let selectedCellImageViewSnapshot = selectedCellImageViewSnapshot
-            else { return nil }
-
-        animator = ViewControllerTransitionManager(type: .present, firstViewController: firstViewController, secondViewController: secondViewController, selectedCellImageViewSnapshot: selectedCellImageViewSnapshot)
-        return animator
-    }
-
-    // 3
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        // 17
-        guard let secondViewController = dismissed as? TransitionCollectionViewViewController2,
-            let selectedCellImageViewSnapshot = selectedCellImageViewSnapshot
-            else { return nil }
-
-        animator = ViewControllerTransitionManager(type: .dismiss, firstViewController: self, secondViewController: secondViewController, selectedCellImageViewSnapshot: selectedCellImageViewSnapshot)
-        return animator
+extension TransitionCollectionViewViewController: TransitionManagerDelegate {
+    func requiredVC()->UIView {
+        return selectedCellImageViewSnapshot ?? UIView()
     }
 }
+//extension TransitionCollectionViewViewController: UIViewControllerTransitioningDelegate {
+//
+//    // 2
+//    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        // 16
+//        guard let firstViewController = presenting as? TransitionCollectionViewViewController,
+//            let secondViewController = presented as? TransitionCollectionViewViewController2,
+//            let selectedCellImageViewSnapshot = selectedCellImageViewSnapshot
+//            else { return nil }
+//
+//        animator = ViewControllerTransition(type: .present, firstViewController: firstViewController, secondViewController: secondViewController, selectedCellImageViewSnapshot: selectedCellImageViewSnapshot)
+//        return animator
+//    }
+//
+//    // 3
+//    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        // 17
+//        guard let secondViewController = dismissed as? TransitionCollectionViewViewController2,
+//            let selectedCellImageViewSnapshot = selectedCellImageViewSnapshot
+//            else { return nil }
+//
+//        animator = ViewControllerTransition(type: .dismiss, firstViewController: self, secondViewController: secondViewController, selectedCellImageViewSnapshot: selectedCellImageViewSnapshot)
+//        return animator
+//    }
+//}
 
 extension TransitionCollectionViewViewController {
 

@@ -17,6 +17,7 @@ class TransitionCollectionViewViewController2: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.view.backgroundColor = .white
         let cross = #imageLiteral(resourceName: "cross").withRenderingMode(.alwaysTemplate)
         closeButton.setImage(cross, for: .normal)
         closeButton.tintColor = .white

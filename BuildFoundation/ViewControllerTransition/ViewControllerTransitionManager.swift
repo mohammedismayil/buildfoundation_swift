@@ -8,7 +8,39 @@
 import Foundation
 import UIKit
 
-final class ViewControllerTransitionManager: NSObject, UIViewControllerAnimatedTransitioning {
+protocol TransitionManagerDelegate: AnyObject {
+    func requiredVC()->UIView
+}
+class ViewControllerTransitionManager: NSObject,UIViewControllerTransitioningDelegate{
+
+    var animator: ViewControllerTransition?
+    var delegate: TransitionManagerDelegate?
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+            // 16
+            guard let firstViewController = presenting as? TransitionCollectionViewViewController,
+                let secondViewController = presented as? TransitionCollectionViewViewController2,
+                  let selectedCellImageViewSnapshot = delegate?.requiredVC()
+                else { return nil }
+
+            animator = ViewControllerTransition(type: .present, firstViewController: firstViewController, secondViewController: secondViewController, selectedCellImageViewSnapshot: selectedCellImageViewSnapshot)
+            return animator
+        }
+
+        // 3
+        func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+            // 17
+//            guard let secondViewController = dismissed as? TransitionCollectionViewViewController2,
+//                let selectedCellImageViewSnapshot = delegate?.requiredVC()
+//                else { return nil }
+//
+//            animator = ViewControllerTransition(type: .dismiss, firstViewController: self, secondViewController: secondViewController, selectedCellImageViewSnapshot: selectedCellImageViewSnapshot)
+//            return animator
+            return nil
+        }
+    
+}
+final class ViewControllerTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
     // 9
     
