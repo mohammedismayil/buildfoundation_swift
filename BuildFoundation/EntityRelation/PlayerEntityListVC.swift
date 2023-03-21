@@ -1,16 +1,17 @@
 //
-//  FRCTable.swift
+//  PlayerEntityListVC.swift
 //  BuildFoundation
 //
-//  Created by ismayil-16441 on 15/01/23.
+//  Created by ismayil-16441 on 21/03/23.
 //
+
 
 import Foundation
 
 import UIKit
 
 import CoreData
-class FRCTableVC:UIViewController{
+class PlayerEntityListVC:UIViewController{
     
     
     
@@ -119,7 +120,7 @@ class FRCTableVC:UIViewController{
         
         let main = UIStoryboard(name: "Main", bundle: nil)
         
-        let vc = main.instantiateViewController(withIdentifier: "FRCPlayerAddVC") as! FRCPlayerAddVC
+        let vc = main.instantiateViewController(withIdentifier: "MatchEntityListVC") as! MatchEntityListVC
         
         self.navigationController?.present(vc, animated: true)
         
@@ -129,7 +130,7 @@ class FRCTableVC:UIViewController{
         
         let main = UIStoryboard(name: "Main", bundle: nil)
         
-        let vc = main.instantiateViewController(withIdentifier: "FRCTableVC2") as! FRCTableVC2
+        let vc = main.instantiateViewController(withIdentifier: "MatchEntityListVC") as! MatchEntityListVC
         
         self.navigationController?.present(vc, animated: true)
         
@@ -157,7 +158,7 @@ class FRCTableVC:UIViewController{
 }
 
 
-extension FRCTableVC: UITableViewDelegate,UITableViewDataSource{
+extension PlayerEntityListVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell(withIdentifier: "FRCTableCell", for: indexPath) as! FRCTableCell
 
@@ -190,7 +191,7 @@ extension FRCTableVC: UITableViewDelegate,UITableViewDataSource{
     }
     
 }
-extension FRCTableVC:NSFetchedResultsControllerDelegate{
+extension PlayerEntityListVC:NSFetchedResultsControllerDelegate{
     
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
@@ -214,7 +215,7 @@ extension FRCTableVC:NSFetchedResultsControllerDelegate{
         }
 }
 
-extension FRCTableVC:DummyPlayerAddition{
+extension PlayerEntityListVC:DummyPlayerAddition{
     
     @objc func addPlayer() {
         

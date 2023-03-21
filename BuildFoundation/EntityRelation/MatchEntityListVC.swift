@@ -1,16 +1,17 @@
 //
-//  FRCTable.swift
+//  MatchEntityListVC.swift
 //  BuildFoundation
 //
-//  Created by ismayil-16441 on 15/01/23.
+//  Created by ismayil-16441 on 21/03/23.
 //
 
 import Foundation
 
+
 import UIKit
 
 import CoreData
-class FRCTableVC:UIViewController{
+class MatchEntityListVC:UIViewController{
     
     
     
@@ -51,9 +52,9 @@ class FRCTableVC:UIViewController{
         
         coreDataHandler = CoreDataManager.shared
         
-        coreDataHandler.fetchPlayersData()
+        coreDataHandler.fetchMatchesData()
         
-        coreDataHandler?.playerFetchController.delegate = self
+        coreDataHandler?.matchFetchController.delegate = self
         
     }
     
@@ -157,11 +158,11 @@ class FRCTableVC:UIViewController{
 }
 
 
-extension FRCTableVC: UITableViewDelegate,UITableViewDataSource{
+extension MatchEntityListVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell(withIdentifier: "FRCTableCell", for: indexPath) as! FRCTableCell
 
-        cell.playerNameLbl?.text = CoreDataManager.shared.playerFetchController.object(at: indexPath).playerID.description
+        cell.playerNameLbl?.text = CoreDataManager.shared.matchFetchController.object(at: indexPath).matchID.description
         return cell
         
 //        checkBaselineOffSet(indexPath: indexPath)
@@ -190,7 +191,7 @@ extension FRCTableVC: UITableViewDelegate,UITableViewDataSource{
     }
     
 }
-extension FRCTableVC:NSFetchedResultsControllerDelegate{
+extension MatchEntityListVC:NSFetchedResultsControllerDelegate{
     
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
@@ -214,7 +215,7 @@ extension FRCTableVC:NSFetchedResultsControllerDelegate{
         }
 }
 
-extension FRCTableVC:DummyPlayerAddition{
+extension MatchEntityListVC:DummyPlayerAddition{
     
     @objc func addPlayer() {
         

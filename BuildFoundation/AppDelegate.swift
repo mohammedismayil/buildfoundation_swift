@@ -16,13 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-//        let nav  = UINavigationController()
-//
-//        nav.viewControllers = [TransitionCollectionViewViewController3()]
-//            window?.rootViewController = nav
-//
-//            window?.makeKeyAndVisible()
-//        registerForPushNotifications(application: application)
+        let nav  = UINavigationController()
+
+        nav.viewControllers = [PlayerEntityListVC()]
+            window?.rootViewController = nav
+
+            window?.makeKeyAndVisible()
+        registerForPushNotifications(application: application)
         InteractionUpdater.setUpConfig()
         return true
     }
