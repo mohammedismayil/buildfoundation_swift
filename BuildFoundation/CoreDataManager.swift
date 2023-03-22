@@ -110,4 +110,15 @@ class CoreDataManager{
             
         }
     }
+    
+    func updateMatch(indexPath:IndexPath) {
+        
+        matchFetchController.object(at: indexPath).locationName = "Melbourne"
+        do {
+            try matchFetchController.managedObjectContext.save()
+        } catch {
+            
+        }
+        
+    }
 }
