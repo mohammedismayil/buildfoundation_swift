@@ -117,13 +117,14 @@ class PlayerEntityListVC:UIViewController{
     
     
     @objc func moveToPlayerAddVC(){
-        
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        
-        let vc = main.instantiateViewController(withIdentifier: "MatchEntityListVC") as! MatchEntityListVC
-        
-        self.navigationController?.present(vc, animated: true)
-        
+//
+//        let main = UIStoryboard(name: "Main", bundle: nil)
+//
+//        let vc = main.instantiateViewController(withIdentifier: "MatchEntityListVC") as! MatchEntityListVC
+//
+//        self.navigationController?.present(vc, animated: true)
+
+        self.coreDataHandler.addDummyPlayerData()
     }
     
     @objc func moveToNextFRCVC(){
@@ -162,7 +163,10 @@ extension PlayerEntityListVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell(withIdentifier: "FRCTableCell", for: indexPath) as! FRCTableCell
 
-        cell.playerNameLbl?.text = CoreDataManager.shared.playerFetchController.object(at: indexPath).playerID.description
+        let player = CoreDataManager.shared.playerFetchController.object(at: indexPath)
+        cell.playerNameLbl?.text = player.playerID.description
+        
+        cell.matchLocationLabel.text = player.playerToMatch?.locationName
         return cell
         
 //        checkBaselineOffSet(indexPath: indexPath)

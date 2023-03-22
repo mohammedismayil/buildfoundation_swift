@@ -118,11 +118,12 @@ class MatchEntityListVC:UIViewController{
     
     @objc func moveToPlayerAddVC(){
         
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        
-        let vc = main.instantiateViewController(withIdentifier: "FRCPlayerAddVC") as! FRCPlayerAddVC
-        
-        self.navigationController?.present(vc, animated: true)
+//        let main = UIStoryboard(name: "Main", bundle: nil)
+//        
+//        let vc = main.instantiateViewController(withIdentifier: "FRCPlayerAddVC") as! FRCPlayerAddVC
+//        
+//        self.navigationController?.present(vc, animated: true)
+        self.coreDataHandler.addDummyMatchesData()
         
     }
     
@@ -162,7 +163,7 @@ extension MatchEntityListVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell(withIdentifier: "FRCTableCell", for: indexPath) as! FRCTableCell
 
-        cell.playerNameLbl?.text = CoreDataManager.shared.matchFetchController.object(at: indexPath).matchID.description
+        cell.playerNameLbl?.text = CoreDataManager.shared.matchFetchController.object(at: indexPath).locationName?.description
         return cell
         
 //        checkBaselineOffSet(indexPath: indexPath)
@@ -179,7 +180,7 @@ extension MatchEntityListVC: UITableViewDelegate,UITableViewDataSource{
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        guard let fc = CoreDataManager.shared.playerFetchController else {return 0  }
+        guard let fc = CoreDataManager.shared.matchFetchController else {return 0  }
         return fc.sections?[section].numberOfObjects ?? 0
     }
     
@@ -188,6 +189,10 @@ extension MatchEntityListVC: UITableViewDelegate,UITableViewDataSource{
         
         return 80
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        <#code#>
     }
     
 }

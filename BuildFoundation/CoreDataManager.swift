@@ -53,7 +53,7 @@ class CoreDataManager{
        
        let request = MatchEntity.createFetchRequest()
       
-               let sort = NSSortDescriptor(key: "location", ascending: false)
+               let sort = NSSortDescriptor(key: "locationName", ascending: false)
               request.sortDescriptors = [sort]
 
         matchFetchController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: appDel.persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
@@ -76,6 +76,11 @@ class CoreDataManager{
         
         entity.name = "Peter"
         entity.playerID = Int64(UUID().hashValue)
+        let matchEntity = MatchEntity(entity:NSEntityDescription.entity(forEntityName: "MatchEntity", in : managedContext)! , insertInto: managedContext)
+        
+        matchEntity.locationName = "Sydney"
+        matchEntity.matchID = Int64(UUID().hashValue)
+        entity.playerToMatch = matchEntity
 
                 //4
         do {
@@ -91,8 +96,9 @@ class CoreDataManager{
         let managedContext = appDel.persistentContainer.viewContext
         let entity = MatchEntity(entity:NSEntityDescription.entity(forEntityName: "MatchEntity", in : managedContext)! , insertInto: managedContext)
         
-        entity.location = "Brisbane"
+        entity.locationName = "Brisbane"
         entity.matchID = Int64(UUID().hashValue)
+//        entity.matchToPlayer = 
 
                 //4
         do {
