@@ -73,54 +73,53 @@ class ViewControllerTransition: NSObject, UIViewControllerAnimatedTransitioning 
         guard
             let vc = transitionContext.viewController(forKey: .from) as? TransitionCollectionViewViewController,
             let window = vc.view.window,
-            let vc2 = transitionContext.viewController(forKey: .to) as? TransitionCollectionViewViewController2,
+            let vc2 = transitionContext.viewController(forKey: .to) as? TransitionReceiveVC,
             let toView = vc2.view,
             let listView = delegate?.snapShotView(),
             let cellImageSnapshot = delegate?.snapShotView().snapshotView(afterScreenUpdates: true),
-            let controllerImageSnapshot = toView.snapshotView(afterScreenUpdates: true),
+            let controllerImageSnapshot = vc2.avatarView.snapshotView(afterScreenUpdates: true),
+            let previewSnapShot = vc2.view.snapshotView(afterScreenUpdates: true),
             let cellImageViewRect =
-                delegate?.snapShotView().convert(delegate?.snapShotView().bounds ?? CGRect(), to: window)
+                delegate?.snapShotView().convert(delegate?.snapShotView().bounds ?? CGRect(), to: window),
+            let roundImageRect =
+                delegate?.snapShotView().convert(CGRect(x: 0, y: 0, width: 50, height: 50), to: window)
                 
         else {
             transitionContext.completeTransition(true)
             return
         }
-        let controllerImageViewRect = toView.convert(toView.bounds, to: window)
-        let center = toView.center
+        let controllerImageViewRect = vc2.avatarView.convert(vc2.avatarView.bounds, to: window)
+        let center = vc2.view.center
+        
+        
         containerView.addSubview(toView)
-        let backgroundView: UIView
-        let fadeView = UIView(frame: containerView.bounds)
-        fadeView.backgroundColor = vc2.view.backgroundColor
-        backgroundView = UIView(frame: containerView.bounds)
-//        backgroundView.addSubview(fadeView)
-        fadeView.alpha = 0
         toView.alpha = 0
-        //         containerView.addSubview(backgroundView)
-                containerView.addSubview(cellImageSnapshot)
-                containerView.addSubview(controllerImageSnapshot)
-        let circleView = UIView()
-        circleView.backgroundColor = .black
-        circleView.frame = toView.frameToFitWidth(frame: listView.frame)
-        circleView.layer.cornerRadius = listView.layer.cornerRadius ?? circleView.frame.width/2
-        toView.addSubview(circleView)
-        toView.mask = circleView
-        cellImageSnapshot.frame = cellImageViewRect
+//        cellImageSnapshot.frame = CGRect(x: -30, y: -30, width: 50, height: 50)
+        
+//        cellImageSnapshot.layer.masksToBounds = true
+//        cellImageSnapshot.layer.cornerRadius = 25
+        
+//        containerView.addSubview(controllerImageSnapshot)
+        containerView.addSubview(previewSnapShot)
+        containerView.addSubview(cellImageSnapshot)
+        previewSnapShot.frame = cellImageViewRect
+        previewSnapShot.alpha = 1
+        cellImageSnapshot.frame = roundImageRect
         cellImageSnapshot.alpha = 1
-        controllerImageSnapshot.frame = cellImageViewRect
-        controllerImageSnapshot.alpha = 0
+//        controllerImageSnapshot.frame = cellImageViewRect
+//        controllerImageSnapshot.alpha = 0
         performAnimation(duration: Self.duration) {
-            cellImageSnapshot.alpha = 0
+            cellImageSnapshot.alpha = 1
             cellImageSnapshot.frame =  controllerImageViewRect
-            controllerImageSnapshot.alpha = 1
-            controllerImageSnapshot.frame =  controllerImageViewRect
-            fadeView.alpha = 1
-            circleView.transform = CGAffineTransform(scaleX: 2.5, y: 2.5)
-            toView.transform = .identity
+//            controllerImageSnapshot.alpha = 1
+//            controllerImageSnapshot.frame =  controllerImageViewRect
+            previewSnapShot.frame =  controllerImageViewRect
+            previewSnapShot.alpha = 0
             toView.center = center
         } completion: { (success) in
             cellImageSnapshot.removeFromSuperview()
-            controllerImageSnapshot.removeFromSuperview()
-            backgroundView.removeFromSuperview()
+//            controllerImageSnapshot.removeFromSuperview()
+            previewSnapShot.removeFromSuperview()
             toView.alpha = 1
             transitionContext.completeTransition(true)
         }
@@ -133,7 +132,7 @@ class ViewControllerTransition: NSObject, UIViewControllerAnimatedTransitioning 
             let vc = transitionContext.viewController(forKey: .from) as? TransitionCollectionViewViewController,
             let window = vc.view.window,
             let vc2 = transitionContext.viewController(forKey: .to) as? TransitionCollectionViewViewController2,
-            let toView = vc2.view,
+            let toView = vc2.getImage(),
             let listView = delegate?.snapShotView(),
             let cellImageSnapshot = delegate?.snapShotView().snapshotView(afterScreenUpdates: false),
             let controllerImageSnapshot = toView.snapshotView(afterScreenUpdates: false),

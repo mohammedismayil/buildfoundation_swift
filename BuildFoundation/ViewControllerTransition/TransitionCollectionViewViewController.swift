@@ -41,7 +41,7 @@ class TransitionCollectionViewViewController: UIViewController {
     
 
     func presentSecondViewController(with data: TransitionCellData) {
-        let secondViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TransitionCollectionViewViewController2") as! TransitionCollectionViewViewController2
+        let secondViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TransitionReceiveVC") as! TransitionReceiveVC
 
         // 4
         secondViewController.transitioningDelegate = transitionManager
@@ -81,7 +81,7 @@ extension TransitionCollectionViewViewController: UICollectionViewDelegate, UICo
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.bounds.width - Constants.cellSpacing) / 2
-        return .init(width: width, height: width)
+        return .init(width: 50, height: 50)
     }
 }
 extension TransitionCollectionViewViewController: TransitionManagerDelegate {
@@ -152,5 +152,6 @@ final class TransitionCollectionViewCell: UICollectionViewCell {
         locationImageView.image = cellData.image
         locationLabel.text = cellData.title
         locationImageView.frame = CGRect(x: 200, y: 700, width: 50, height: 50)
+        locationImageView.layer.cornerRadius = 25
     }
 }

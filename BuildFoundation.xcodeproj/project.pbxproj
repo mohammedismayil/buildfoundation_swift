@@ -52,6 +52,7 @@
 		6FB7D9D829A26CAE009BD98E /* LocationNotificationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB7D9D529A26CAE009BD98E /* LocationNotificationInfo.swift */; };
 		6FD1336A29BF903A00992979 /* InteractionUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD1336929BF903A00992979 /* InteractionUpdater.swift */; };
 		6FD225C429A13407001F4553 /* NotifyTravelTaskMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD225C329A13407001F4553 /* NotifyTravelTaskMapVC.swift */; };
+		6FD47AFD29CC926300D3854A /* TransitionReceiveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD47AFC29CC926300D3854A /* TransitionReceiveVC.swift */; };
 		6FDCCB3429C1816F0021429C /* CheckCrashReportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDCCB3329C1816F0021429C /* CheckCrashReportVC.swift */; };
 		6FDCCB3729C1C8350021429C /* Demo.sh in Resources */ = {isa = PBXBuildFile; fileRef = 6FDCCB3629C1C2440021429C /* Demo.sh */; };
 		6FFC8F92297446BB00EF9D5C /* FRCTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFC8F91297446BB00EF9D5C /* FRCTableVC.swift */; };
@@ -149,6 +150,7 @@
 		6FB7D9D929A28767009BD98E /* SimulatedLocations.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SimulatedLocations.gpx; sourceTree = "<group>"; };
 		6FD1336929BF903A00992979 /* InteractionUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionUpdater.swift; sourceTree = "<group>"; };
 		6FD225C329A13407001F4553 /* NotifyTravelTaskMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyTravelTaskMapVC.swift; sourceTree = "<group>"; };
+		6FD47AFC29CC926300D3854A /* TransitionReceiveVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionReceiveVC.swift; sourceTree = "<group>"; };
 		6FDCCB3329C1816F0021429C /* CheckCrashReportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCrashReportVC.swift; sourceTree = "<group>"; };
 		6FDCCB3629C1C2440021429C /* Demo.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = Demo.sh; sourceTree = "<group>"; };
 		6FFC8F91297446BB00EF9D5C /* FRCTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRCTableVC.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				6F25309329C4C23D00791D48 /* TransitionCollectionViewViewController.swift */,
 				6F25309529C4C26700791D48 /* TransitionCollectionViewViewController2.swift */,
 				6F25309B29C4D14C00791D48 /* TransitionCollectionViewViewController3.swift */,
+				6FD47AFC29CC926300D3854A /* TransitionReceiveVC.swift */,
 				6F25309729C4C2F500791D48 /* SampleTransitionImages.swift */,
 				6F25309929C4C52400791D48 /* ViewControllerTransitionManager.swift */,
 			);
@@ -534,6 +537,7 @@
 				6F2EFBA02973CD6200FD5517 /* FrameVsBounds.swift in Sources */,
 				6F2AEEAE29B114A300F7B892 /* BlankInitialVC.swift in Sources */,
 				6F2EFB712973CD0D00FD5517 /* ViewController.swift in Sources */,
+				6FD47AFD29CC926300D3854A /* TransitionReceiveVC.swift in Sources */,
 				6FB7D9D629A26CAE009BD98E /* LocationNotificationScheduler.swift in Sources */,
 				6F0957E8298840F50022AC56 /* Protocol-DefaultImplementation.swift in Sources */,
 				6FDCCB3429C1816F0021429C /* CheckCrashReportVC.swift in Sources */,

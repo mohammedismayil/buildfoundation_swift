@@ -10,6 +10,7 @@ import UIKit
 class TransitionCollectionViewViewController2: UIViewController {
     
     
+    @IBOutlet weak var avatarView: UIImageView!
     var data: TransitionCellData!
 
     @IBOutlet weak var transition2CV: UICollectionView!
@@ -23,11 +24,13 @@ class TransitionCollectionViewViewController2: UIViewController {
         let cross = #imageLiteral(resourceName: "cross").withRenderingMode(.alwaysTemplate)
         closeButton.setImage(cross, for: .normal)
         closeButton.tintColor = .white
-        
+        avatarView.image = data.image
+//        avatarView.layer.masksToBounds = true
+//        avatarView.layer.cornerRadius = 20
 //        transition2CV.register(Transition2CVC.self, forCellWithReuseIdentifier: "Transition2CVC")
-        transition2CV.delegate = self
-        transition2CV.dataSource = self
-        transition2CV.reloadData()
+//        transition2CV.delegate = self
+//        transition2CV.dataSource = self
+//        transition2CV.reloadData()
         
 
       
@@ -39,7 +42,7 @@ class TransitionCollectionViewViewController2: UIViewController {
 
 }
 
-extension TransitionCollectionViewViewController2: UICollectionViewDelegate, UICollectionViewDataSource {
+extension TransitionCollectionViewViewController2: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -56,7 +59,20 @@ extension TransitionCollectionViewViewController2: UICollectionViewDelegate, UIC
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (collectionView.bounds.width - Constants.cellSpacing)
+        return .init(width: width, height: 200)
+    }
     
+    enum Constants {
+
+        static let cellSpacing: CGFloat = 8
+    }
+    
+    func getImage()->UIView?{
+        let cell = self.transition2CV.cellForItem(at: IndexPath(row: 0, section: 0)) as? Transition2CVC
+        return cell?.locationImageView 
+    }
 }
 
 class Transition2CVC: UICollectionViewCell{
