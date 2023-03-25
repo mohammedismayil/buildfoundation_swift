@@ -28,7 +28,7 @@ class ViewControllerTransitionManager: NSObject,UIViewControllerTransitioningDel
     
 }
 class ViewControllerTransition: NSObject, UIViewControllerAnimatedTransitioning {
-    static let duration: TimeInterval = 4
+    static let duration: TimeInterval = 5
     
     private let type: PresentationType
     var delegate: TransitionManagerDelegate?
@@ -81,44 +81,38 @@ class ViewControllerTransition: NSObject, UIViewControllerAnimatedTransitioning 
             let previewSnapShot = vc2.view.snapshotView(afterScreenUpdates: true),
             let cellImageViewRect =
                 delegate?.snapShotView().convert(delegate?.snapShotView().bounds ?? CGRect(), to: window),
-            let roundImageRect =
+            let imageRect =
                 delegate?.snapShotView().convert(CGRect(x: 0, y: 0, width: 50, height: 50), to: window)
                 
         else {
             transitionContext.completeTransition(true)
             return
         }
+        
+        let roundImageRect = CGRect(x: Int(imageRect.x), y: Int(imageRect.y), width: 50, height: 50)
         let controllerImageViewRect = vc2.avatarView.convert(vc2.avatarView.bounds, to: window)
         let center = vc2.view.center
-        
-        
         containerView.addSubview(toView)
         toView.alpha = 0
-//        cellImageSnapshot.frame = CGRect(x: -30, y: -30, width: 50, height: 50)
-        
-//        cellImageSnapshot.layer.masksToBounds = true
-//        cellImageSnapshot.layer.cornerRadius = 25
-        
-//        containerView.addSubview(controllerImageSnapshot)
-        containerView.addSubview(previewSnapShot)
+//        containerView.addSubview(previewSnapShot)
         containerView.addSubview(cellImageSnapshot)
         previewSnapShot.frame = cellImageViewRect
         previewSnapShot.alpha = 1
         cellImageSnapshot.frame = roundImageRect
         cellImageSnapshot.alpha = 1
-//        controllerImageSnapshot.frame = cellImageViewRect
-//        controllerImageSnapshot.alpha = 0
+        performAnimation(duration: 0.428*Self.duration) {
+            previewSnapShot.alpha = 0
+        } completion: { _ in
+            
+        }
         performAnimation(duration: Self.duration) {
             cellImageSnapshot.alpha = 1
             cellImageSnapshot.frame =  controllerImageViewRect
-//            controllerImageSnapshot.alpha = 1
-//            controllerImageSnapshot.frame =  controllerImageViewRect
             previewSnapShot.frame =  controllerImageViewRect
             previewSnapShot.alpha = 0
             toView.center = center
         } completion: { (success) in
             cellImageSnapshot.removeFromSuperview()
-//            controllerImageSnapshot.removeFromSuperview()
             previewSnapShot.removeFromSuperview()
             toView.alpha = 1
             transitionContext.completeTransition(true)
