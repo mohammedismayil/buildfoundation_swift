@@ -94,7 +94,7 @@ class ViewControllerTransition: NSObject, UIViewControllerAnimatedTransitioning 
         let center = vc2.view.center
         containerView.addSubview(toView)
         toView.alpha = 0
-//        containerView.addSubview(previewSnapShot)
+        containerView.addSubview(previewSnapShot)
         containerView.addSubview(cellImageSnapshot)
         previewSnapShot.frame = cellImageViewRect
         previewSnapShot.alpha = 1

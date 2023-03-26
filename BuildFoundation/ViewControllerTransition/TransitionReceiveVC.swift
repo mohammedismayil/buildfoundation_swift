@@ -15,19 +15,35 @@ class TransitionReceiveVC: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
    
-   
+    @IBOutlet weak var placeImageView: UIImageView!
+    
     @IBAction func close(_ sender: Any) {
-        dismiss(animated: true)
+       
+        
+        
+    }
+    @IBAction func nextAction(_ sender: Any) {
+        let secondViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TransitionReceiveVC2") as! TransitionReceiveVC2
+
+        // 4
+        secondViewController.transitioningDelegate = self
+
+        secondViewController.modalPresentationStyle = .fullScreen
+//        secondViewController.data = data
+        present(secondViewController, animated: true)
+        
     }
     override func viewDidLoad() {
         print("loaded")
         
-        
+        self.view.backgroundColor = .white
         avatarView.frame = CGRect(x: 20, y: 100, width: 25, height: 25)
         
         nameLabel.frame = CGRect(x: 50, y: 100, width: 100, height: 20)
         closeButton.frame = CGRect(x: self.view.frame.width - 80, y: 100, width: 50, height: 30)
-        avatarView.image = data.image
+        placeImageView.frame = CGRect(x: (self.view.frame.width / 2)  - 100 , y: (self.view.frame.height / 2) - 100, width: 200, height: 200)
+        placeImageView.image = SampleTransitionImages.data[0].image
+        avatarView.image = SampleTransitionImages.data[0].image
         let cross = #imageLiteral(resourceName: "cross").withRenderingMode(.alwaysTemplate)
         closeButton.setImage(cross, for: .normal)
         closeButton.tintColor = .white
@@ -38,3 +54,14 @@ class TransitionReceiveVC: UIViewController {
 //        avatarView.layoutIfNeeded()
     }
 }
+
+extension TransitionReceiveVC: UIViewControllerTransitioningDelegate{
+    
+
+func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+
+    let animator = TransitionReceiveVC2Animator()
+    return animator
+    }
+}
+
