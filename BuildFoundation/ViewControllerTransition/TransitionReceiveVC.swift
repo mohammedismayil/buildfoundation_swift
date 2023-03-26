@@ -41,7 +41,8 @@ class TransitionReceiveVC: UIViewController {
         
         nameLabel.frame = CGRect(x: 50, y: 100, width: 100, height: 20)
         closeButton.frame = CGRect(x: self.view.frame.width - 80, y: 100, width: 50, height: 30)
-        placeImageView.frame = CGRect(x: (self.view.frame.width / 2)  - 100 , y: (self.view.frame.height / 2) - 100, width: 200, height: 200)
+        placeImageView.frame = CGRect(x: 100 , y: (self.view.frame.height) - 100, width: 50, height: 50)
+        placeImageView.layer.cornerRadius = 25
         placeImageView.image = SampleTransitionImages.data[0].image
         avatarView.image = SampleTransitionImages.data[0].image
         let cross = #imageLiteral(resourceName: "cross").withRenderingMode(.alwaysTemplate)

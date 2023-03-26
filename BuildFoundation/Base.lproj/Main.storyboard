@@ -371,10 +371,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner-user" translatesAutoresizingMaskIntoConstraints="NO" id="3Te-fj-PEU">
-                                <rect key="frame" x="20" y="159" width="50" height="50"/>
+                                <rect key="frame" x="20" y="159" width="30" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="NI3-Ji-mVq"/>
-                                    <constraint firstAttribute="height" constant="50" id="psh-yO-uvf"/>
+                                    <constraint firstAttribute="width" constant="30" id="NI3-Ji-mVq"/>
+                                    <constraint firstAttribute="height" constant="30" id="psh-yO-uvf"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great Britain" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n85-bo-7fc">
@@ -403,6 +403,9 @@
                             <constraint firstItem="YsX-QV-6gf" firstAttribute="trailing" secondItem="8Gu-ny-AKO" secondAttribute="trailing" constant="20" id="jsO-dL-1vK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="avatarImage" destination="3Te-fj-PEU" id="K1v-aP-Qcv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xvr-ia-0xa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
