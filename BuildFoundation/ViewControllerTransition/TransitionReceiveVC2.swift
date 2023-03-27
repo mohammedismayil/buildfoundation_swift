@@ -16,7 +16,7 @@ class TransitionReceiveVC2: UIViewController {
     
     override func viewDidLoad() {
         avatarImage.image = SampleTransitionImages.data[0].image
-        avatarImage.layer.cornerRadius = 15
+        avatarImage.layer.cornerRadius = 10
     }
     @IBAction func closeTapped(_ sender: Any) {
         self.dismiss(animated: true)

@@ -371,10 +371,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner-user" translatesAutoresizingMaskIntoConstraints="NO" id="3Te-fj-PEU">
-                                <rect key="frame" x="20" y="159" width="30" height="30"/>
+                                <rect key="frame" x="20" y="109" width="20" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="NI3-Ji-mVq"/>
-                                    <constraint firstAttribute="height" constant="30" id="psh-yO-uvf"/>
+                                    <constraint firstAttribute="width" constant="20" id="NI3-Ji-mVq"/>
+                                    <constraint firstAttribute="height" constant="20" id="psh-yO-uvf"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great Britain" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n85-bo-7fc">
@@ -397,7 +397,7 @@
                         <constraints>
                             <constraint firstItem="n85-bo-7fc" firstAttribute="centerY" secondItem="6bQ-Dz-DYx" secondAttribute="centerY" id="8uK-fF-Viq"/>
                             <constraint firstItem="n85-bo-7fc" firstAttribute="centerX" secondItem="6bQ-Dz-DYx" secondAttribute="centerX" id="Jed-0z-CwV"/>
-                            <constraint firstItem="3Te-fj-PEU" firstAttribute="top" secondItem="YsX-QV-6gf" secondAttribute="top" constant="100" id="KNL-1g-HeH"/>
+                            <constraint firstItem="3Te-fj-PEU" firstAttribute="top" secondItem="YsX-QV-6gf" secondAttribute="top" constant="50" id="KNL-1g-HeH"/>
                             <constraint firstItem="3Te-fj-PEU" firstAttribute="leading" secondItem="YsX-QV-6gf" secondAttribute="leading" constant="20" id="YKr-xG-aWL"/>
                             <constraint firstItem="8Gu-ny-AKO" firstAttribute="top" secondItem="YsX-QV-6gf" secondAttribute="top" constant="30" id="g2h-Bs-poT"/>
                             <constraint firstItem="YsX-QV-6gf" firstAttribute="trailing" secondItem="8Gu-ny-AKO" secondAttribute="trailing" constant="20" id="jsO-dL-1vK"/>
