@@ -15,7 +15,15 @@ enum AnimationType {
 
 class TransitionReceiveVC2Animator:  NSObject,UIViewControllerAnimatedTransitioning {
     
-    let duration: TimeInterval = 5
+    var duration: TimeInterval {
+        switch animationType {
+        
+        case .dismiss:
+            return 5
+        case .present:
+            return 1
+        }
+    }
     let delay: TimeInterval = 1
     
     var animationType:AnimationType
@@ -56,7 +64,7 @@ class TransitionReceiveVC2Animator:  NSObject,UIViewControllerAnimatedTransition
         
         let center = toView.center
         container.backgroundColor = .clear
-        fromVC.view.backgroundColor = .clear
+//        fromVC.view.backgroundColor = .clear
         container.addSubview(toView)
         toVC.avatarImage.isHidden = true
         container.addSubview(fromViewSnapShot)
@@ -90,48 +98,34 @@ class TransitionReceiveVC2Animator:  NSObject,UIViewControllerAnimatedTransition
         let container = transitionContext.containerView
         
         
-        guard let toView = transitionContext.viewController(forKey: .to)?.view,let toViewSnapshot = toView.snapshotView(afterScreenUpdates: true),let toVC = transitionContext.viewController(forKey: .to) as? TransitionReceiveVC2, let fromVC = transitionContext.viewController(forKey: .from) as? TransitionReceiveVC ,let fromViewSnapShot = fromVC.placeImageView.snapshotView(afterScreenUpdates: true) else{
+        guard let toView = transitionContext.viewController(forKey: .to)?.view,let toViewSnapshot = toView.snapshotView(afterScreenUpdates: true),let toVC = transitionContext.viewController(forKey: .to) as? TransitionReceiveVC, let fromVC = transitionContext.viewController(forKey: .from) as? TransitionReceiveVC2 , let fromViewSnapShot = fromVC.avatarImage.snapshotView(afterScreenUpdates: true),let fromControlSnapShot = fromVC.view.snapshotView(afterScreenUpdates: true) else{
             
                 transitionContext.completeTransition(false)
             return
         }
         
         let center = toView.center
-        container.backgroundColor = .clear
-        fromVC.view.backgroundColor = .clear
         container.addSubview(toView)
-        toVC.avatarImage.isHidden = true
-        container.addSubview(fromViewSnapShot)
-//        container.addSubview(toViewSnapshot)
-        fromViewSnapShot.frame = fromVC.placeImageView.frame
-//        toView.frame.height = fromVC.placeImageView.frame.height
+        toVC.placeImageView.isHidden = true
+        fromViewSnapShot.frame = fromVC.avatarImage.frame
+        fromVC.avatarImage.isHidden = true
         toView.alpha = 1
-        toViewSnapshot.frame = fromViewSnapShot.frame
-//        toView.center = transitionCenter
-        let scaleToFitInialState = fromVC.placeImageView.frame.width / toView.bounds.width
-        
-        let scale = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        let scaleToFitInialState = toVC.placeImageView.frame.width / toView.bounds.width
+        let scale = CGAffineTransform(scaleX: 0.01, y: 0.01)
         let translate = CGAffineTransform(translationX: 100, y: -150)
-//        toView.transform = scale.concatenating(translate)
-        
-        toView.center = CGPoint(x: fromVC.placeImageView.frame.maxX, y: fromVC.placeImageView.frame.maxY)
-//        toView.frame.height = 50
-        toView.transform = scale
-//        toView.transform = CGAffineTransform(scaleX: scaleToFitInialState, y: scaleToFitInialState)
+        container.addSubview(fromControlSnapShot)
+        container.addSubview(fromViewSnapShot)
+        fromControlSnapShot.frame = fromVC.view.frame
         UIView.animate(withDuration: duration, delay: delay, animations: {
-            fromViewSnapShot.frame = toVC.avatarImage.frame
-            toView.center = center
-//            toView.frame.height = UIScreen.main.bounds.height
-            toView.transform = .identity
-//            toViewSnapshot.frame = toVC.view.frame
-//            toViewSnapshot.transform = CGAffineTransform(scaleX: 2, y: 2)
+            fromViewSnapShot.frame = toVC.placeImageView.frame
+            fromControlSnapShot.center = toVC.placeImageView.frame.center
+            fromControlSnapShot.transform = scale
         },completion: { (success) in
-            container.backgroundColor = .clear
-            toView.alpha = 1
-//            toView.frame.height = UIScreen.main.bounds.height
-            toVC.avatarImage.isHidden = false
+            fromVC.avatarImage.isHidden = false
+            toVC.placeImageView.isHidden = false
             toViewSnapshot.removeFromSuperview()
             fromViewSnapShot.removeFromSuperview()
+            fromControlSnapShot.removeFromSuperview()
             transitionContext.completeTransition(true)
         })
        
