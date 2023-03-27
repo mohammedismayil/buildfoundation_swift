@@ -60,33 +60,22 @@ class TransitionReceiveVC2Animator:  NSObject,UIViewControllerAnimatedTransition
         container.addSubview(toView)
         toVC.avatarImage.isHidden = true
         container.addSubview(fromViewSnapShot)
-//        container.addSubview(toViewSnapshot)
         fromViewSnapShot.frame = fromVC.placeImageView.frame
-//        toView.frame.height = fromVC.placeImageView.frame.height
         toView.alpha = 1
         toViewSnapshot.frame = fromViewSnapShot.frame
-//        toView.center = transitionCenter
         let scaleToFitInialState = fromVC.placeImageView.frame.width / toView.bounds.width
         
         let scale = CGAffineTransform(scaleX: 0.1, y: 0.1)
         let translate = CGAffineTransform(translationX: 100, y: -150)
-//        toView.transform = scale.concatenating(translate)
-        
         toView.center = CGPoint(x: fromVC.placeImageView.frame.maxX, y: fromVC.placeImageView.frame.maxY)
-//        toView.frame.height = 50
         toView.transform = scale
-//        toView.transform = CGAffineTransform(scaleX: scaleToFitInialState, y: scaleToFitInialState)
         UIView.animate(withDuration: duration, delay: delay, animations: {
             fromViewSnapShot.frame = toVC.avatarImage.frame
             toView.center = center
-//            toView.frame.height = UIScreen.main.bounds.height
             toView.transform = .identity
-//            toViewSnapshot.frame = toVC.view.frame
-//            toViewSnapshot.transform = CGAffineTransform(scaleX: 2, y: 2)
         },completion: { (success) in
             container.backgroundColor = .clear
             toView.alpha = 1
-//            toView.frame.height = UIScreen.main.bounds.height
             toVC.avatarImage.isHidden = false
             toViewSnapshot.removeFromSuperview()
             fromViewSnapShot.removeFromSuperview()
