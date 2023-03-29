@@ -98,7 +98,7 @@ class TransitionReceiveVC2Animator:  NSObject,UIViewControllerAnimatedTransition
         let container = transitionContext.containerView
         
         
-        guard let toView = transitionContext.viewController(forKey: .to)?.view,let toViewSnapshot = toView.snapshotView(afterScreenUpdates: true),let toVC = transitionContext.viewController(forKey: .to) as? TransitionReceiveVC, let fromVC = transitionContext.viewController(forKey: .from) as? TransitionReceiveVC2 , let fromViewSnapShot = fromVC.avatarImage.snapshotView(afterScreenUpdates: true),let fromControlSnapShot = fromVC.view.snapshotView(afterScreenUpdates: true) else{
+        guard let toView = transitionContext.viewController(forKey: .to)?.view,let toVC = transitionContext.viewController(forKey: .to) as? TransitionReceiveVC, let fromVC = transitionContext.viewController(forKey: .from) as? TransitionReceiveVC2 , let fromViewSnapShot = fromVC.avatarImage.snapshotView(afterScreenUpdates: true),let fromControlSnapShot = fromVC.view.snapshotView(afterScreenUpdates: true) else{
             
                 transitionContext.completeTransition(false)
             return
@@ -123,7 +123,6 @@ class TransitionReceiveVC2Animator:  NSObject,UIViewControllerAnimatedTransition
         },completion: { (success) in
             fromVC.avatarImage.isHidden = false
             toVC.placeImageView.isHidden = false
-            toViewSnapshot.removeFromSuperview()
             fromViewSnapShot.removeFromSuperview()
             fromControlSnapShot.removeFromSuperview()
             transitionContext.completeTransition(true)
