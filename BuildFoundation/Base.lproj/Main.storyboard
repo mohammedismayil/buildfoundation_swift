@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lBE-wC-bqS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zz1-tH-QRA">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -410,6 +410,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xvr-ia-0xa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1214.5038167938931" y="-1216.1971830985917"/>
+        </scene>
+        <!--Check Corner RadiusVC-->
+        <scene sceneID="1mu-NN-kvT">
+            <objects>
+                <viewController storyboardIdentifier="CheckCornerRadiusVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zz1-tH-QRA" customClass="CheckCornerRadiusVC" customModule="BuildFoundation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k1A-uV-bOW">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Miy-Xp-fIm">
+                                <rect key="frame" x="146.66666666666666" y="376" width="100" height="100"/>
+                                <color key="backgroundColor" systemColor="systemMintColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="ZK2-hP-zS7"/>
+                                    <constraint firstAttribute="height" constant="100" id="ZLC-6S-IA0"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UVX-9s-T0Y"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Miy-Xp-fIm" firstAttribute="centerY" secondItem="k1A-uV-bOW" secondAttribute="centerY" id="4Is-K4-OBT"/>
+                            <constraint firstItem="Miy-Xp-fIm" firstAttribute="centerX" secondItem="k1A-uV-bOW" secondAttribute="centerX" id="oBI-hv-6hH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="view1" destination="Miy-Xp-fIm" id="HHY-js-94J"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ash-3M-FoI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="62" y="-673"/>
         </scene>
     </scenes>
     <resources>

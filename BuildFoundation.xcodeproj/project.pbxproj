@@ -39,6 +39,7 @@
 		6F800A0029A7A2FA001BA6BB /* CASpringAnimationTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8009FF29A7A2FA001BA6BB /* CASpringAnimationTestVC.swift */; };
 		6F81300129B26B8400988422 /* SimpleCustomUIComponentsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6F81300029B26B8400988422 /* SimpleCustomUIComponentsSwift */; };
 		6F883B8B29D0589F00114E53 /* TransitionReceiveVC2Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F883B8A29D0589F00114E53 /* TransitionReceiveVC2Animator.swift */; };
+		6F883B8F29D54CFF00114E53 /* CheckCornerRadiusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F883B8E29D54CFF00114E53 /* CheckCornerRadiusVC.swift */; };
 		6F93ABFC299FF63100D56C21 /* UILayoutPriorityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F93ABFB299FF63100D56C21 /* UILayoutPriorityVC.swift */; };
 		6F940F2529CA0F9300F5A956 /* PlayerEntityListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F940F2429CA0F9300F5A956 /* PlayerEntityListVC.swift */; };
 		6F940F2729CA154000F5A956 /* MatchEntityListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F940F2629CA154000F5A956 /* MatchEntityListVC.swift */; };
@@ -137,6 +138,7 @@
 		6F7B83B1298AE10B0051B66C /* AddDummyPlayerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDummyPlayerProtocol.swift; sourceTree = "<group>"; };
 		6F8009FF29A7A2FA001BA6BB /* CASpringAnimationTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CASpringAnimationTestVC.swift; sourceTree = "<group>"; };
 		6F883B8A29D0589F00114E53 /* TransitionReceiveVC2Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionReceiveVC2Animator.swift; sourceTree = "<group>"; };
+		6F883B8E29D54CFF00114E53 /* CheckCornerRadiusVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCornerRadiusVC.swift; sourceTree = "<group>"; };
 		6F93ABFB299FF63100D56C21 /* UILayoutPriorityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILayoutPriorityVC.swift; sourceTree = "<group>"; };
 		6F940F2429CA0F9300F5A956 /* PlayerEntityListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerEntityListVC.swift; sourceTree = "<group>"; };
 		6F940F2629CA154000F5A956 /* MatchEntityListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchEntityListVC.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				6FD47AFC29CC926300D3854A /* TransitionReceiveVC.swift */,
 				6FC5F06329CF18ED00549170 /* TransitionReceiveVC2.swift */,
 				6F883B8A29D0589F00114E53 /* TransitionReceiveVC2Animator.swift */,
+				6F883B8E29D54CFF00114E53 /* CheckCornerRadiusVC.swift */,
 				6F25309729C4C2F500791D48 /* SampleTransitionImages.swift */,
 				6F25309929C4C52400791D48 /* ViewControllerTransitionManager.swift */,
 			);
@@ -567,6 +570,7 @@
 				6F2EFB6F2973CD0D00FD5517 /* SceneDelegate.swift in Sources */,
 				6F2EFB772973CD0D00FD5517 /* BuildFoundation.xcdatamodeld in Sources */,
 				6F25309829C4C2F500791D48 /* SampleTransitionImages.swift in Sources */,
+				6F883B8F29D54CFF00114E53 /* CheckCornerRadiusVC.swift in Sources */,
 				6F0957EA298975770022AC56 /* ShareIntentVC.swift in Sources */,
 				6F25309429C4C23D00791D48 /* TransitionCollectionViewViewController.swift in Sources */,
 				6FB7D9D729A26CAE009BD98E /* LocationNotificationSchedulerDelegate.swift in Sources */,
