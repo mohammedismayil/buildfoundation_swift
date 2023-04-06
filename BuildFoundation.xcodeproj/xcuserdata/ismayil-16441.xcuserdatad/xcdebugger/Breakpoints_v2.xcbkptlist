@@ -104,15 +104,127 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "70B2846A-247A-4925-8201-A9164A3687A8"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuildFoundation/ViewControllerTransition/CheckCornerRadiusVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1F9FA507-4147-4A82-A5BD-0C725475DD8A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildFoundation/ViewControllerTransition/CheckCornerRadiusVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "nextAction(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1F9FA507-4147-4A82-A5BD-0C725475DD8A - 71b6d0a74e83cd84"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuildFoundation.CheckCornerRadiusVC.nextAction(Any) -&gt; ()"
+                  moduleName = "BuildFoundation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ismayil-16441/Desktop/BuildFoundation/BuildFoundation/ViewControllerTransition/CheckCornerRadiusVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "1F9FA507-4147-4A82-A5BD-0C725475DD8A - 1dbed5528d4d9c91"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in BuildFoundation.CheckCornerRadiusVC.nextAction(Any) -&gt; ()"
+                  moduleName = "BuildFoundation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ismayil-16441/Desktop/BuildFoundation/BuildFoundation/ViewControllerTransition/CheckCornerRadiusVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "84">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B7B151FE-49A1-42C7-9415-9261D765E176"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildFoundation/ViewControllerTransition/CheckCornerRadiusVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "nextAction(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B7B151FE-49A1-42C7-9415-9261D765E176 - 71b6d0a74e83cd84"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuildFoundation.CheckCornerRadiusVC.nextAction(Any) -&gt; ()"
+                  moduleName = "BuildFoundation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ismayil-16441/Desktop/BuildFoundation/BuildFoundation/ViewControllerTransition/CheckCornerRadiusVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "B7B151FE-49A1-42C7-9415-9261D765E176 - 1dbed5528d4d9c91"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in BuildFoundation.CheckCornerRadiusVC.nextAction(Any) -&gt; ()"
+                  moduleName = "BuildFoundation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ismayil-16441/Desktop/BuildFoundation/BuildFoundation/ViewControllerTransition/CheckCornerRadiusVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "84">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6618D5F8-EAC3-41B7-BD78-2379AC119584"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildFoundation/ViewControllerTransition/CheckCornerRadiusVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "nextAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

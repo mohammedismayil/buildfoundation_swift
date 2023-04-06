@@ -9,6 +9,7 @@ import UIKit
 
 class CheckCornerRadiusVC: UIViewController {
 
+    @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view1: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,13 +17,25 @@ class CheckCornerRadiusVC: UIViewController {
         // Do any additional setup after loading the view.
         
 //        view1.layer.cornerRadius = 50
-        view1.layer.borderWidth = 10
+        view1.layer.cornerRadius = 25
         view1.layer.borderColor = UIColor.red.cgColor
+        
+        view2.layer.cornerRadius = 25
+        view1.layer.borderColor = UIColor.black.cgColor
         
         
     }
     
-
+    @IBAction func nextAction(_ sender: Any) {
+        
+        let duration:TimeInterval = 0.4
+        
+        UIView.animate(withDuration: duration, delay: duration) {
+            
+            self.view1.transform = CGAffineTransform(translationX: self.view2.frame.x - 40 , y: -20)
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
