@@ -30,6 +30,7 @@
 		6F2EFB912973CD0E00FD5517 /* BuildFoundationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2EFB902973CD0E00FD5517 /* BuildFoundationUITests.swift */; };
 		6F2EFB932973CD0E00FD5517 /* BuildFoundationUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2EFB922973CD0E00FD5517 /* BuildFoundationUITestsLaunchTests.swift */; };
 		6F2EFBA02973CD6200FD5517 /* FrameVsBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2EFB9F2973CD6200FD5517 /* FrameVsBounds.swift */; };
+		6F34E26E29FF9AE400D782E8 /* NestedSectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F34E26D29FF9AE400D782E8 /* NestedSectionVC.swift */; };
 		6F4551792997D13100731962 /* RouteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4551782997D13100731962 /* RouteVC.swift */; };
 		6F607BED2999599000E39CDB /* CreateChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F607BEC2999599000E39CDB /* CreateChatVC.swift */; };
 		6F607BF2299D4CAA00E39CDB /* FootballPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F607BF1299D4CAA00E39CDB /* FootballPlayer.swift */; };
@@ -130,6 +131,7 @@
 		6F2EFB902973CD0E00FD5517 /* BuildFoundationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildFoundationUITests.swift; sourceTree = "<group>"; };
 		6F2EFB922973CD0E00FD5517 /* BuildFoundationUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildFoundationUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6F2EFB9F2973CD6200FD5517 /* FrameVsBounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameVsBounds.swift; sourceTree = "<group>"; };
+		6F34E26D29FF9AE400D782E8 /* NestedSectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedSectionVC.swift; sourceTree = "<group>"; };
 		6F4551782997D13100731962 /* RouteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteVC.swift; sourceTree = "<group>"; };
 		6F607BEC2999599000E39CDB /* CreateChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChatVC.swift; sourceTree = "<group>"; };
 		6F607BF1299D4CAA00E39CDB /* FootballPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballPlayer.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				6FC5F06329CF18ED00549170 /* TransitionReceiveVC2.swift */,
 				6F883B8A29D0589F00114E53 /* TransitionReceiveVC2Animator.swift */,
 				6F883B8E29D54CFF00114E53 /* CheckCornerRadiusVC.swift */,
+				6F34E26D29FF9AE400D782E8 /* NestedSectionVC.swift */,
 				6F25309729C4C2F500791D48 /* SampleTransitionImages.swift */,
 				6F25309929C4C52400791D48 /* ViewControllerTransitionManager.swift */,
 			);
@@ -539,6 +542,7 @@
 				6F93ABFC299FF63100D56C21 /* UILayoutPriorityVC.swift in Sources */,
 				6F940F2929CA162B00F5A956 /* MatchEntity.swift in Sources */,
 				6F0BB953297853A500B840C1 /* ThemeAddButton.swift in Sources */,
+				6F34E26E29FF9AE400D782E8 /* NestedSectionVC.swift in Sources */,
 				6F25309629C4C26700791D48 /* TransitionCollectionViewViewController2.swift in Sources */,
 				6F7B83B0298ADDDD0051B66C /* CoreDataManager2.swift in Sources */,
 				6F25309A29C4C52400791D48 /* ViewControllerTransitionManager.swift in Sources */,
