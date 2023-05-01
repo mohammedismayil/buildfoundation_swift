@@ -503,6 +503,29 @@
                                             <outlet property="titleLabel" destination="Ors-fe-WfS" id="CMu-Is-LIn"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NestedSubSectionTableViewCell" id="PRx-GI-gTh" customClass="NestedSubSectionTableViewCell" customModule="BuildFoundation" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="93.666667938232422" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PRx-GI-gTh" id="iHX-ND-XMC">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IrB-Ft-btg">
+                                                    <rect key="frame" x="175.66666666666666" y="11.333333333333336" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="IrB-Ft-btg" firstAttribute="centerX" secondItem="iHX-ND-XMC" secondAttribute="centerX" id="FBs-a3-wcs"/>
+                                                <constraint firstItem="IrB-Ft-btg" firstAttribute="centerY" secondItem="iHX-ND-XMC" secondAttribute="centerY" id="pw3-h5-9fU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="IrB-Ft-btg" id="psu-ND-Gsi"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
